@@ -1,0 +1,1110 @@
+{
+  "tts_provider": "gemini",
+  "voice_id": "Achernar",
+  "bgm": null,
+  "bgm_pending": false,
+  "bgm_provider": null,
+  "bgm_pid": null,
+  "bgm_log": null,
+  "bgm_mode": null,
+  "bgm_target_duration_s": null,
+  "bgm_seed_duration_s": null,
+  "bgm_loop_count": null,
+  "voices": [
+    {
+      "id": "s01",
+      "path": "assets/voice/s01.wav",
+      "duration_s": 7.52,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Ici,",
+          "start": 0.01,
+          "end": 0.26
+        },
+        {
+          "id": "w1",
+          "text": "le",
+          "start": 0.32,
+          "end": 0.36
+        },
+        {
+          "id": "w2",
+          "text": "champ",
+          "start": 0.36,
+          "end": 0.61
+        },
+        {
+          "id": "w3",
+          "text": "magnétique",
+          "start": 0.63,
+          "end": 1.16
+        },
+        {
+          "id": "w4",
+          "text": "de",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "id": "w5",
+          "text": "la",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "id": "w6",
+          "text": "Terre",
+          "start": 1.36,
+          "end": 1.63
+        },
+        {
+          "id": "w7",
+          "text": "disparaît",
+          "start": 1.63,
+          "end": 2.1
+        },
+        {
+          "id": "w8",
+          "text": "ses",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "id": "w9",
+          "text": "deux",
+          "start": 2.26,
+          "end": 2.41
+        },
+        {
+          "id": "w10",
+          "text": "mains.",
+          "start": 2.52,
+          "end": 3
+        },
+        {
+          "id": "w11",
+          "text": "Est-ce",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "id": "w12",
+          "text": "qu'on",
+          "start": 3.33,
+          "end": 3.6
+        },
+        {
+          "id": "w13",
+          "text": "perdrait",
+          "start": 3.6,
+          "end": 4.06
+        },
+        {
+          "id": "w14",
+          "text": "notre",
+          "start": 4.06,
+          "end": 4.35
+        },
+        {
+          "id": "w15",
+          "text": "atmosphère?",
+          "start": 4.35,
+          "end": 5
+        },
+        {
+          "id": "w16",
+          "text": "Cette",
+          "start": 5.32,
+          "end": 5.35
+        },
+        {
+          "id": "w17",
+          "text": "couche",
+          "start": 5.35,
+          "end": 5.77
+        },
+        {
+          "id": "w18",
+          "text": "de",
+          "start": 5.77,
+          "end": 5.91
+        },
+        {
+          "id": "w19",
+          "text": "gaz",
+          "start": 5.91,
+          "end": 6.12
+        },
+        {
+          "id": "w20",
+          "text": "qui",
+          "start": 6.12,
+          "end": 6.33
+        },
+        {
+          "id": "w21",
+          "text": "nous",
+          "start": 6.33,
+          "end": 6.61
+        },
+        {
+          "id": "w22",
+          "text": "permet",
+          "start": 6.61,
+          "end": 7.03
+        },
+        {
+          "id": "w23",
+          "text": "de",
+          "start": 7.03,
+          "end": 7.17
+        },
+        {
+          "id": "w24",
+          "text": "respirer?",
+          "start": 7.17,
+          "end": 8
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "path": "assets/voice/s02.wav",
+      "duration_s": 2.84,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Salut",
+          "start": 0.25,
+          "end": 0.32
+        },
+        {
+          "id": "w1",
+          "text": "les",
+          "start": 0.39,
+          "end": 0.52
+        },
+        {
+          "id": "w2",
+          "text": "Astro-Curieux,",
+          "start": 0.52,
+          "end": 1.4
+        },
+        {
+          "id": "w3",
+          "text": "c'est",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "id": "w4",
+          "text": "Astronorie.",
+          "start": 1.99,
+          "end": 2.83
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "path": "assets/voice/s03.wav",
+      "duration_s": 10,
+      "words": []
+    },
+    {
+      "id": "s04",
+      "path": "assets/voice/s04.wav",
+      "duration_s": 11,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Heureusement,",
+          "start": 0.01,
+          "end": 0.77
+        },
+        {
+          "id": "w1",
+          "text": "la",
+          "start": 0.97,
+          "end": 1
+        },
+        {
+          "id": "w2",
+          "text": "Terre",
+          "start": 1,
+          "end": 1.32
+        },
+        {
+          "id": "w3",
+          "text": "a",
+          "start": 1.32,
+          "end": 1.35
+        },
+        {
+          "id": "w4",
+          "text": "un",
+          "start": 1.39,
+          "end": 1.5
+        },
+        {
+          "id": "w5",
+          "text": "champ",
+          "start": 1.5,
+          "end": 1.82
+        },
+        {
+          "id": "w6",
+          "text": "magnétique",
+          "start": 1.82,
+          "end": 2.24
+        },
+        {
+          "id": "w7",
+          "text": "créé",
+          "start": 2.73,
+          "end": 3
+        },
+        {
+          "id": "w8",
+          "text": "par",
+          "start": 3,
+          "end": 3.19
+        },
+        {
+          "id": "w9",
+          "text": "le",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "id": "w10",
+          "text": "fer",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "id": "w11",
+          "text": "liquide",
+          "start": 3.5,
+          "end": 3.96
+        },
+        {
+          "id": "w12",
+          "text": "de",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "id": "w13",
+          "text": "son",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "id": "w14",
+          "text": "noyau.",
+          "start": 4.34,
+          "end": 5
+        },
+        {
+          "id": "w15",
+          "text": "Il",
+          "start": 5.01,
+          "end": 5.14
+        },
+        {
+          "id": "w16",
+          "text": "forme",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "id": "w17",
+          "text": "un",
+          "start": 5.49,
+          "end": 5.63
+        },
+        {
+          "id": "w18",
+          "text": "bouclier",
+          "start": 5.63,
+          "end": 6.13
+        },
+        {
+          "id": "w19",
+          "text": "invisible,",
+          "start": 6.24,
+          "end": 7
+        },
+        {
+          "id": "w20",
+          "text": "la",
+          "start": 7,
+          "end": 7.07
+        },
+        {
+          "id": "w21",
+          "text": "magnétosphère,",
+          "start": 7.16,
+          "end": 8.13
+        },
+        {
+          "id": "w22",
+          "text": "qui",
+          "start": 8.13,
+          "end": 8.29
+        },
+        {
+          "id": "w23",
+          "text": "dévie",
+          "start": 8.42,
+          "end": 8.68
+        },
+        {
+          "id": "w24",
+          "text": "une",
+          "start": 8.68,
+          "end": 8.89
+        },
+        {
+          "id": "w25",
+          "text": "grande",
+          "start": 8.89,
+          "end": 9.3
+        },
+        {
+          "id": "w26",
+          "text": "partie",
+          "start": 9.3,
+          "end": 9.59
+        },
+        {
+          "id": "w27",
+          "text": "de",
+          "start": 9.59,
+          "end": 9.95
+        },
+        {
+          "id": "w28",
+          "text": "ses",
+          "start": 9.95,
+          "end": 10.06
+        },
+        {
+          "id": "w29",
+          "text": "particules.",
+          "start": 10.29,
+          "end": 10.97
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "path": "assets/voice/s05.wav",
+      "duration_s": 10,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Mais",
+          "start": 0.23,
+          "end": 0.26
+        },
+        {
+          "id": "w1",
+          "text": "attention,",
+          "start": 0.26,
+          "end": 1
+        },
+        {
+          "id": "w2",
+          "text": "ce",
+          "start": 1.01,
+          "end": 1.12
+        },
+        {
+          "id": "w3",
+          "text": "n'est",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "id": "w4",
+          "text": "pas",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "id": "w5",
+          "text": "ce",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "id": "w6",
+          "text": "bouclier",
+          "start": 1.7,
+          "end": 2.18
+        },
+        {
+          "id": "w7",
+          "text": "qui",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "id": "w8",
+          "text": "retient",
+          "start": 2.32,
+          "end": 2.63
+        },
+        {
+          "id": "w9",
+          "text": "notre",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "id": "w10",
+          "text": "air.",
+          "start": 2.85,
+          "end": 3.04
+        },
+        {
+          "id": "w11",
+          "text": "C'est",
+          "start": 3.17,
+          "end": 3.52
+        },
+        {
+          "id": "w12",
+          "text": "la",
+          "start": 3.52,
+          "end": 3.63
+        },
+        {
+          "id": "w13",
+          "text": "gravité.",
+          "start": 3.69,
+          "end": 4.43
+        },
+        {
+          "id": "w14",
+          "text": "En",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "id": "w15",
+          "text": "plus",
+          "start": 4.69,
+          "end": 4.83
+        },
+        {
+          "id": "w16",
+          "text": "de",
+          "start": 4.83,
+          "end": 4.93
+        },
+        {
+          "id": "w17",
+          "text": "nous",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "id": "w18",
+          "text": "garder",
+          "start": 5.19,
+          "end": 5.3
+        },
+        {
+          "id": "w19",
+          "text": "les",
+          "start": 5.69,
+          "end": 5.73
+        },
+        {
+          "id": "w20",
+          "text": "pieds",
+          "start": 5.78,
+          "end": 6.06
+        },
+        {
+          "id": "w21",
+          "text": "sur",
+          "start": 6.06,
+          "end": 6.24
+        },
+        {
+          "id": "w22",
+          "text": "terre,",
+          "start": 6.24,
+          "end": 6.69
+        },
+        {
+          "id": "w23",
+          "text": "elle",
+          "start": 6.74,
+          "end": 7.04
+        },
+        {
+          "id": "w24",
+          "text": "attire",
+          "start": 7.04,
+          "end": 7.49
+        },
+        {
+          "id": "w25",
+          "text": "les",
+          "start": 7.49,
+          "end": 7.6
+        },
+        {
+          "id": "w26",
+          "text": "gaz",
+          "start": 7.93,
+          "end": 8.08
+        },
+        {
+          "id": "w27",
+          "text": "et",
+          "start": 8.08,
+          "end": 8.2
+        },
+        {
+          "id": "w28",
+          "text": "empêche",
+          "start": 8.2,
+          "end": 8.58
+        },
+        {
+          "id": "w29",
+          "text": "la",
+          "start": 8.68,
+          "end": 8.75
+        },
+        {
+          "id": "w30",
+          "text": "plupart",
+          "start": 8.75,
+          "end": 8.85
+        },
+        {
+          "id": "w31",
+          "text": "de",
+          "start": 9.15,
+          "end": 9.25
+        },
+        {
+          "id": "w32",
+          "text": "s'échapper.",
+          "start": 9.25,
+          "end": 9.86
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "path": "assets/voice/s06.wav",
+      "duration_s": 17.16,
+      "words": []
+    },
+    {
+      "id": "s07",
+      "path": "assets/voice/s07.wav",
+      "duration_s": 12.36,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Alors,",
+          "start": 0.2,
+          "end": 0.41
+        },
+        {
+          "id": "w1",
+          "text": "si",
+          "start": 0.41,
+          "end": 0.86
+        },
+        {
+          "id": "w2",
+          "text": "notre",
+          "start": 0.86,
+          "end": 0.92
+        },
+        {
+          "id": "w3",
+          "text": "champ",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "id": "w4",
+          "text": "magnétique",
+          "start": 1.25,
+          "end": 1.92
+        },
+        {
+          "id": "w5",
+          "text": "disparaissait",
+          "start": 1.92,
+          "end": 2.78
+        },
+        {
+          "id": "w6",
+          "text": "demain,",
+          "start": 2.78,
+          "end": 3.4
+        },
+        {
+          "id": "w7",
+          "text": "on",
+          "start": 3.4,
+          "end": 3.44
+        },
+        {
+          "id": "w8",
+          "text": "ne",
+          "start": 3.44,
+          "end": 3.65
+        },
+        {
+          "id": "w9",
+          "text": "perdrait",
+          "start": 3.65,
+          "end": 4.04
+        },
+        {
+          "id": "w10",
+          "text": "pas",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "id": "w11",
+          "text": "notre",
+          "start": 4.2,
+          "end": 4.39
+        },
+        {
+          "id": "w12",
+          "text": "air",
+          "start": 4.43,
+          "end": 4.52
+        },
+        {
+          "id": "w13",
+          "text": "d'un",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "id": "w14",
+          "text": "coup.",
+          "start": 4.7,
+          "end": 5.28
+        },
+        {
+          "id": "w15",
+          "text": "La",
+          "start": 5.28,
+          "end": 5.48
+        },
+        {
+          "id": "w16",
+          "text": "gravité",
+          "start": 5.48,
+          "end": 5.7
+        },
+        {
+          "id": "w17",
+          "text": "serait",
+          "start": 6.14,
+          "end": 6.25
+        },
+        {
+          "id": "w18",
+          "text": "toujours",
+          "start": 6.3,
+          "end": 6.77
+        },
+        {
+          "id": "w19",
+          "text": "là,",
+          "start": 6.77,
+          "end": 7.04
+        },
+        {
+          "id": "w20",
+          "text": "mais",
+          "start": 7.04,
+          "end": 7.21
+        },
+        {
+          "id": "w21",
+          "text": "la",
+          "start": 7.3,
+          "end": 7.37
+        },
+        {
+          "id": "w22",
+          "text": "Terre",
+          "start": 7.43,
+          "end": 7.75
+        },
+        {
+          "id": "w23",
+          "text": "serait",
+          "start": 7.75,
+          "end": 8.14
+        },
+        {
+          "id": "w24",
+          "text": "plus",
+          "start": 8.14,
+          "end": 8.31
+        },
+        {
+          "id": "w25",
+          "text": "exposée",
+          "start": 8.72,
+          "end": 8.88
+        },
+        {
+          "id": "w26",
+          "text": "au",
+          "start": 8.93,
+          "end": 9.05
+        },
+        {
+          "id": "w27",
+          "text": "vent",
+          "start": 9.05,
+          "end": 9.38
+        },
+        {
+          "id": "w28",
+          "text": "solaire",
+          "start": 9.44,
+          "end": 10
+        },
+        {
+          "id": "w29",
+          "text": "et",
+          "start": 10,
+          "end": 10.08
+        },
+        {
+          "id": "w30",
+          "text": "pourrait",
+          "start": 10.12,
+          "end": 10.21
+        },
+        {
+          "id": "w31",
+          "text": "en",
+          "start": 10.46,
+          "end": 10.5
+        },
+        {
+          "id": "w32",
+          "text": "perdre",
+          "start": 10.7,
+          "end": 10.84
+        },
+        {
+          "id": "w33",
+          "text": "un",
+          "start": 10.84,
+          "end": 10.95
+        },
+        {
+          "id": "w34",
+          "text": "peu",
+          "start": 10.95,
+          "end": 11.05
+        },
+        {
+          "id": "w35",
+          "text": "plus",
+          "start": 11.11,
+          "end": 11.35
+        },
+        {
+          "id": "w36",
+          "text": "au",
+          "start": 11.44,
+          "end": 11.48
+        },
+        {
+          "id": "w37",
+          "text": "fil",
+          "start": 11.48,
+          "end": 11.66
+        },
+        {
+          "id": "w38",
+          "text": "du",
+          "start": 11.66,
+          "end": 11.76
+        },
+        {
+          "id": "w39",
+          "text": "temps.",
+          "start": 11.76,
+          "end": 12.28
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "path": "assets/voice/s09.wav",
+      "duration_s": 9.84,
+      "words": [
+        {
+          "id": "w0",
+          "text": "En",
+          "start": 0.2,
+          "end": 0.26
+        },
+        {
+          "id": "w1",
+          "text": "résumé,",
+          "start": 0.26,
+          "end": 1
+        },
+        {
+          "id": "w2",
+          "text": "la",
+          "start": 1.03,
+          "end": 1.16
+        },
+        {
+          "id": "w3",
+          "text": "gravité",
+          "start": 1.16,
+          "end": 1.73
+        },
+        {
+          "id": "w4",
+          "text": "retient",
+          "start": 1.73,
+          "end": 2.31
+        },
+        {
+          "id": "w5",
+          "text": "notre",
+          "start": 2.31,
+          "end": 2.72
+        },
+        {
+          "id": "w6",
+          "text": "air",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "id": "w7",
+          "text": "et",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "id": "w8",
+          "text": "le",
+          "start": 3.24,
+          "end": 3.32
+        },
+        {
+          "id": "w9",
+          "text": "champ",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "id": "w10",
+          "text": "magnétique",
+          "start": 3.54,
+          "end": 4
+        },
+        {
+          "id": "w11",
+          "text": "nous",
+          "start": 4,
+          "end": 4.24
+        },
+        {
+          "id": "w12",
+          "text": "protège",
+          "start": 4.24,
+          "end": 4.64
+        },
+        {
+          "id": "w13",
+          "text": "d'une",
+          "start": 4.64,
+          "end": 5.13
+        },
+        {
+          "id": "w14",
+          "text": "partie",
+          "start": 5.42,
+          "end": 5.44
+        },
+        {
+          "id": "w15",
+          "text": "des",
+          "start": 5.44,
+          "end": 5.57
+        },
+        {
+          "id": "w16",
+          "text": "particules",
+          "start": 5.59,
+          "end": 5.94
+        },
+        {
+          "id": "w17",
+          "text": "du",
+          "start": 6.11,
+          "end": 6.13
+        },
+        {
+          "id": "w18",
+          "text": "soleil.",
+          "start": 6.17,
+          "end": 6.56
+        },
+        {
+          "id": "w19",
+          "text": "Deux",
+          "start": 6.57,
+          "end": 6.8
+        },
+        {
+          "id": "w20",
+          "text": "rôles",
+          "start": 6.82,
+          "end": 7.09
+        },
+        {
+          "id": "w21",
+          "text": "différents,",
+          "start": 7.1,
+          "end": 7.86
+        },
+        {
+          "id": "w22",
+          "text": "mais",
+          "start": 7.86,
+          "end": 8.11
+        },
+        {
+          "id": "w23",
+          "text": "tous",
+          "start": 8.11,
+          "end": 8.3
+        },
+        {
+          "id": "w24",
+          "text": "les",
+          "start": 8.4,
+          "end": 8.55
+        },
+        {
+          "id": "w25",
+          "text": "deux",
+          "start": 8.55,
+          "end": 8.8
+        },
+        {
+          "id": "w26",
+          "text": "essentiels.",
+          "start": 8.8,
+          "end": 9.51
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "path": "assets/voice/s10.wav",
+      "duration_s": 3.56,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Et",
+          "start": 0.01,
+          "end": 0.09
+        },
+        {
+          "id": "w1",
+          "text": "toi,",
+          "start": 0.23,
+          "end": 0.31
+        },
+        {
+          "id": "w2",
+          "text": "tu",
+          "start": 0.38,
+          "end": 0.41
+        },
+        {
+          "id": "w3",
+          "text": "pensais",
+          "start": 0.41,
+          "end": 0.73
+        },
+        {
+          "id": "w4",
+          "text": "que",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "id": "w5",
+          "text": "c'était",
+          "start": 0.89,
+          "end": 1.18
+        },
+        {
+          "id": "w6",
+          "text": "le",
+          "start": 1.18,
+          "end": 1.27
+        },
+        {
+          "id": "w7",
+          "text": "champ",
+          "start": 1.27,
+          "end": 1.5
+        },
+        {
+          "id": "w8",
+          "text": "magnétique?",
+          "start": 1.5,
+          "end": 2.04
+        },
+        {
+          "id": "w9",
+          "text": "Dis-le-moi",
+          "start": 2.31,
+          "end": 2.62
+        },
+        {
+          "id": "w10",
+          "text": "en",
+          "start": 2.62,
+          "end": 2.69
+        },
+        {
+          "id": "w11",
+          "text": "commentaire!",
+          "start": 2.9,
+          "end": 3.46
+        }
+      ]
+    }
+  ],
+  "sfx": [],
+  "total_duration_s": 84.28
+}
