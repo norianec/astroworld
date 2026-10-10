@@ -14,7 +14,7 @@ Les étapes sont dans l'ordre. On coche au fur et à mesure.
 
 ## Phase 3 — Stratégie de contenu
 - [ ] 7. 30 premières idées + calendrier 4 semaines + séries récurrentes → `content-strategy` + `social`
-- [ ] 8. Scripts des 5 premières vidéos, 3 accroches chacun → `social` + `humanizer`
+- [ ] 8. Scripts des 5 premières vidéos (1re vidéo faite : « Qu'est-ce qui retient notre air ? »), 3 accroches chacun → `social` + `humanizer`
 
 ## Phase 4 — Production
 - [ ] 9. Montage des rushs (coupes, couleurs) → `video-use`
