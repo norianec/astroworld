@@ -24,7 +24,7 @@
 - **Positionnement :** AstroNori est la conteuse animée de l'espace qui rend l'astronomie aussi addictive qu'un scroll, pour ceux qui pensaient que ce n'était pas pour eux.
 - **La chose à retenir :** « Avec AstroNori, tu comprends l'univers en une minute et tu en veux encore. »
 
-### Convictions *(à valider : tu n'avais pas d'idée, voici des propositions)*
+### Convictions *(validées)*
 1. **L'astronomie n'est pas réservée aux matheux.** On croit qu'il faut être bon en sciences. En vrai, il faut juste être curieux, et tout le monde l'est.
 2. **Scroller peut rendre plus intelligent.** On accuse TikTok d'abrutir. Le problème, c'est ce qu'on y regarde, pas l'appli.
 3. **On a le droit de dire « on ne sait pas ».** Beaucoup de vulgarisateurs présentent tout comme réglé. Les vrais mystères de l'univers sont le meilleur contenu qui existe.
@@ -35,7 +35,7 @@
 - **Jamais :** prof qui fait la leçon, condescendante, pleine de jargon, sensationnaliste avec des fausses infos.
 - **Adresse :** tutoiement de l'audience.
 - **Style :** histoires et images concrètes (« si le Soleil était une orange… »), phrases courtes, une révélation par vidéo, un brin d'humour.
-- **Expressions à moi :** *(à compléter avec tes mots à toi)*
+- **Voix off :** voix IA réaliste, féminine et douce. Guide complet : `mon-identite/ma-voix.md`
 
 ## 5. Mes thèmes (piliers de contenu)
 1. **« C'est réel ?! »** : les faits fous de l'univers (planètes de diamant, étoiles à neutrons, pluie de verre…).
@@ -48,7 +48,7 @@
 ## 6. Plateformes
 - **Principale :** TikTok. C'est là que la vulgarisation courte décolle le plus vite.
 - **Secondaires :** YouTube Shorts et Reels Instagram, avec la même vidéo adaptée (titre et description propres à chaque plateforme).
-- **Rythme réaliste au départ :** 3 vidéos par semaine *(à ajuster selon ton temps)*.
+- **Rythme réaliste au départ :** 3 vidéos par semaine (validé).
 - **Format :** vertical 9:16, 30 à 60 secondes, voix off + personnage + animations.
 
 ## 7. Look visuel
