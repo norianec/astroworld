@@ -5,7 +5,7 @@ Les étapes sont dans l'ordre. On coche au fur et à mesure.
 ## Phase 1 — Fondations (avant de créer les comptes)
 - [x] 1. Positionnement, audience, thèmes, plan 90 jours → `personal-brand` (remplit `ma-marque.md`)
 - [x] 2. Ton de voix, mots à faire / à éviter → `brand-voice`
-- [ ] 3. Ton histoire (future vidéo épinglée) → `brand-story`
+- [x] 3. Ton histoire (future vidéo épinglée) → `brand-story`
 
 ## Phase 2 — Création des comptes
 - [ ] 4. Nom de chaîne, @pseudo, bios TikTok et YouTube → `copywriting` + `humanizer`

@@ -59,7 +59,7 @@ ont remarqué, si tu étais là-bas, petite révélation, ça change tout, voyag
 « révolutionnaire », « littéralement » à tout bout de champ, les sigles non expliqués
 (UA, IR, etc. : dire « distance Terre-Soleil », « lumière infrarouge, celle qu'on ne voit pas »).
 
-**Nom de la communauté :** les « astro-curieux » *(proposition)*.
+**Nom de la communauté :** les « astro-curieux » (validé).
 
 ## 5. Règles d'écriture
 
