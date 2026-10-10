@@ -3,8 +3,8 @@
 | Plateforme | Pseudo | Nom affiché |
 |---|---|---|
 | TikTok | @astro.nori | AstroNori 🪐 |
-| Instagram | @astronorri *(à confirmer : double « r » voulu ?)* | AstroNori 🪐 |
-| YouTube | à choisir (idéal : @astro.nori) | AstroNori |
+| Instagram | @astronorri (@astro.nori était pris) | AstroNori 🪐 |
+| YouTube | @astronorri | AstroNori |
 
 Lien commun dans les bios : à ajouter plus tard (page « lien en bio », puis la boutique).
 

@@ -9,7 +9,7 @@ Les étapes sont dans l'ordre. On coche au fur et à mesure.
 
 ## Phase 2 — Création des comptes
 - [x] 4. Nom de chaîne, @pseudo, bios TikTok et YouTube → `copywriting` + `humanizer`
-- [ ] 5. Photo de profil, bannière YouTube (2560×1440), modèle de couverture → `canvas-design`
+- [x] 5. Photo de profil, bannière YouTube (2560×1440), modèle de couverture → `canvas-design`
 - [ ] 6. Logo animé + signature de fin de vidéo → `text-to-lottie` / `motion-graphics`
 
 ## Phase 3 — Stratégie de contenu
