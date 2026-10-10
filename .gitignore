@@ -1,0 +1,23 @@
+# Clés secrètes (ex. clé ElevenLabs) : ne jamais les envoyer sur GitHub
+.env
+.env.*
+!.env.example
+
+# Vidéos, sons et rendus : trop lourds pour GitHub, ils restent sur ton ordi
+projets/**/*.mp4
+projets/**/*.mov
+projets/**/*.m4v
+projets/**/*.webm
+projets/**/*.wav
+projets/**/*.mp3
+projets/**/rushs/
+projets/**/export/
+projets/**/edit/
+projets/**/renders/
+
+# Fichiers techniques générés automatiquement
+node_modules/
+.venv/
+__pycache__/
+.DS_Store
+Thumbs.db
