@@ -8,7 +8,7 @@ Les étapes sont dans l'ordre. On coche au fur et à mesure.
 - [x] 3. Ton histoire (future vidéo épinglée) → `brand-story`
 
 ## Phase 2 — Création des comptes
-- [ ] 4. Nom de chaîne, @pseudo, bios TikTok et YouTube → `copywriting` + `humanizer`
+- [x] 4. Nom de chaîne, @pseudo, bios TikTok et YouTube → `copywriting` + `humanizer`
 - [ ] 5. Photo de profil, bannière YouTube (2560×1440), modèle de couverture → `canvas-design`
 - [ ] 6. Logo animé + signature de fin de vidéo → `text-to-lottie` / `motion-graphics`
 
