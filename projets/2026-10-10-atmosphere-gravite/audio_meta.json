@@ -1,0 +1,1372 @@
+{
+  "tts_provider": "gemini",
+  "voice_id": "Achernar",
+  "bgm": null,
+  "bgm_pending": false,
+  "bgm_provider": null,
+  "bgm_pid": null,
+  "bgm_log": null,
+  "bgm_mode": null,
+  "bgm_target_duration_s": null,
+  "bgm_seed_duration_s": null,
+  "bgm_loop_count": null,
+  "voices": [
+    {
+      "id": "s01",
+      "path": "assets/voice/s01.wav",
+      "duration_s": 19.52,
+      "words": []
+    },
+    {
+      "id": "s02",
+      "path": "assets/voice/s02.wav",
+      "duration_s": 7.16,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Salut",
+          "start": 0.22,
+          "end": 0.31
+        },
+        {
+          "id": "w1",
+          "text": "les",
+          "start": 0.39,
+          "end": 0.54
+        },
+        {
+          "id": "w2",
+          "text": "Astro-Curieux,",
+          "start": 0.54,
+          "end": 1.45
+        },
+        {
+          "id": "w3",
+          "text": "c'est",
+          "start": 1.67,
+          "end": 2.02
+        },
+        {
+          "id": "w4",
+          "text": "Astronorie!",
+          "start": 2.09,
+          "end": 3.27
+        },
+        {
+          "id": "w5",
+          "text": "Pour",
+          "start": 3.56,
+          "end": 3.64
+        },
+        {
+          "id": "w6",
+          "text": "comprendre,",
+          "start": 3.73,
+          "end": 4.54
+        },
+        {
+          "id": "w7",
+          "text": "il",
+          "start": 4.54,
+          "end": 4.62
+        },
+        {
+          "id": "w8",
+          "text": "faut",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "id": "w9",
+          "text": "d'abord",
+          "start": 4.78,
+          "end": 5.07
+        },
+        {
+          "id": "w10",
+          "text": "savoir",
+          "start": 5.07,
+          "end": 5.34
+        },
+        {
+          "id": "w11",
+          "text": "ce",
+          "start": 5.34,
+          "end": 5.48
+        },
+        {
+          "id": "w12",
+          "text": "qui",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "id": "w13",
+          "text": "se",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "id": "w14",
+          "text": "passe",
+          "start": 5.76,
+          "end": 5.81
+        },
+        {
+          "id": "w15",
+          "text": "autour",
+          "start": 6.27,
+          "end": 6.4
+        },
+        {
+          "id": "w16",
+          "text": "de",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "id": "w17",
+          "text": "la",
+          "start": 6.52,
+          "end": 6.61
+        },
+        {
+          "id": "w18",
+          "text": "Terre.",
+          "start": 6.79,
+          "end": 7.08
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "path": "assets/voice/s03.wav",
+      "duration_s": 17.52,
+      "words": []
+    },
+    {
+      "id": "s04",
+      "path": "assets/voice/s04.wav",
+      "duration_s": 22.72,
+      "words": []
+    },
+    {
+      "id": "s05",
+      "path": "assets/voice/s05.wav",
+      "duration_s": 16.56,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Mais",
+          "start": 0.24,
+          "end": 0.37
+        },
+        {
+          "id": "w1",
+          "text": "attention,",
+          "start": 0.37,
+          "end": 1.4
+        },
+        {
+          "id": "w2",
+          "text": "ce",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "id": "w3",
+          "text": "n'est",
+          "start": 1.58,
+          "end": 1.83
+        },
+        {
+          "id": "w4",
+          "text": "pas",
+          "start": 1.83,
+          "end": 2.02
+        },
+        {
+          "id": "w5",
+          "text": "ce",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "id": "w6",
+          "text": "bouclier",
+          "start": 2.14,
+          "end": 2.68
+        },
+        {
+          "id": "w7",
+          "text": "qui",
+          "start": 2.68,
+          "end": 2.76
+        },
+        {
+          "id": "w8",
+          "text": "retient",
+          "start": 2.9,
+          "end": 3.31
+        },
+        {
+          "id": "w9",
+          "text": "notre",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "id": "w10",
+          "text": "atmosphère.",
+          "start": 3.65,
+          "end": 4.46
+        },
+        {
+          "id": "w11",
+          "text": "C'est",
+          "start": 4.47,
+          "end": 4.96
+        },
+        {
+          "id": "w12",
+          "text": "la",
+          "start": 4.96,
+          "end": 5.14
+        },
+        {
+          "id": "w13",
+          "text": "gravité,",
+          "start": 5.22,
+          "end": 6.06
+        },
+        {
+          "id": "w14",
+          "text": "qui",
+          "start": 6.09,
+          "end": 6.33
+        },
+        {
+          "id": "w15",
+          "text": "maintient",
+          "start": 6.33,
+          "end": 7.14
+        },
+        {
+          "id": "w16",
+          "text": "les",
+          "start": 7.14,
+          "end": 7.41
+        },
+        {
+          "id": "w17",
+          "text": "gaz",
+          "start": 7.41,
+          "end": 7.67
+        },
+        {
+          "id": "w18",
+          "text": "autour",
+          "start": 7.67,
+          "end": 8.22
+        },
+        {
+          "id": "w19",
+          "text": "de",
+          "start": 8.22,
+          "end": 8.34
+        },
+        {
+          "id": "w20",
+          "text": "la",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "id": "w21",
+          "text": "Terre.",
+          "start": 8.56,
+          "end": 9.36
+        },
+        {
+          "id": "w22",
+          "text": "Les",
+          "start": 9.36,
+          "end": 9.61
+        },
+        {
+          "id": "w23",
+          "text": "molécules",
+          "start": 9.61,
+          "end": 10.13
+        },
+        {
+          "id": "w24",
+          "text": "de",
+          "start": 10.13,
+          "end": 10.26
+        },
+        {
+          "id": "w25",
+          "text": "l'air",
+          "start": 10.26,
+          "end": 10.47
+        },
+        {
+          "id": "w26",
+          "text": "sont",
+          "start": 10.72,
+          "end": 10.82
+        },
+        {
+          "id": "w27",
+          "text": "attirées",
+          "start": 10.99,
+          "end": 11.34
+        },
+        {
+          "id": "w28",
+          "text": "par",
+          "start": 11.34,
+          "end": 11.52
+        },
+        {
+          "id": "w29",
+          "text": "notre",
+          "start": 11.52,
+          "end": 11.85
+        },
+        {
+          "id": "w30",
+          "text": "planète,",
+          "start": 11.85,
+          "end": 12.47
+        },
+        {
+          "id": "w31",
+          "text": "et",
+          "start": 12.47,
+          "end": 12.62
+        },
+        {
+          "id": "w32",
+          "text": "la",
+          "start": 12.62,
+          "end": 12.77
+        },
+        {
+          "id": "w33",
+          "text": "plupart",
+          "start": 12.77,
+          "end": 13.2
+        },
+        {
+          "id": "w34",
+          "text": "n'ont",
+          "start": 13.2,
+          "end": 13.49
+        },
+        {
+          "id": "w35",
+          "text": "pas",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "id": "w36",
+          "text": "suffisamment",
+          "start": 13.93,
+          "end": 14.4
+        },
+        {
+          "id": "w37",
+          "text": "d'énergie",
+          "start": 14.48,
+          "end": 15.04
+        },
+        {
+          "id": "w38",
+          "text": "pour",
+          "start": 15.04,
+          "end": 15.21
+        },
+        {
+          "id": "w39",
+          "text": "s'échapper",
+          "start": 15.21,
+          "end": 15.63
+        },
+        {
+          "id": "w40",
+          "text": "dans",
+          "start": 15.74,
+          "end": 15.81
+        },
+        {
+          "id": "w41",
+          "text": "l'espace.",
+          "start": 15.81,
+          "end": 16.32
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "path": "assets/voice/s06.wav",
+      "duration_s": 43.2,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Alors,",
+          "start": 0.24,
+          "end": 0.45
+        },
+        {
+          "id": "w1",
+          "text": "comment",
+          "start": 0.45,
+          "end": 1
+        },
+        {
+          "id": "w2",
+          "text": "les",
+          "start": 1,
+          "end": 1.21
+        },
+        {
+          "id": "w3",
+          "text": "scientifiques",
+          "start": 1.21,
+          "end": 2.07
+        },
+        {
+          "id": "w4",
+          "text": "ont-ils",
+          "start": 2.16,
+          "end": 2.59
+        },
+        {
+          "id": "w5",
+          "text": "compris",
+          "start": 2.7,
+          "end": 3.14
+        },
+        {
+          "id": "w6",
+          "text": "que",
+          "start": 3.22,
+          "end": 3.28
+        },
+        {
+          "id": "w7",
+          "text": "le",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "id": "w8",
+          "text": "champ",
+          "start": 3.38,
+          "end": 3.65
+        },
+        {
+          "id": "w9",
+          "text": "magnétique",
+          "start": 3.65,
+          "end": 4.12
+        },
+        {
+          "id": "w10",
+          "text": "ne",
+          "start": 4.21,
+          "end": 4.27
+        },
+        {
+          "id": "w11",
+          "text": "suffisait",
+          "start": 4.37,
+          "end": 5.04
+        },
+        {
+          "id": "w12",
+          "text": "pas",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "id": "w13",
+          "text": "à",
+          "start": 5.24,
+          "end": 5.29
+        },
+        {
+          "id": "w14",
+          "text": "expliquer",
+          "start": 5.29,
+          "end": 5.8
+        },
+        {
+          "id": "w15",
+          "text": "la",
+          "start": 5.8,
+          "end": 5.94
+        },
+        {
+          "id": "w16",
+          "text": "présence",
+          "start": 5.94,
+          "end": 6.48
+        },
+        {
+          "id": "w17",
+          "text": "de",
+          "start": 6.55,
+          "end": 6.65
+        },
+        {
+          "id": "w18",
+          "text": "notre",
+          "start": 6.65,
+          "end": 7.02
+        },
+        {
+          "id": "w19",
+          "text": "atmosphère?",
+          "start": 7.02,
+          "end": 8
+        },
+        {
+          "id": "w20",
+          "text": "Ils",
+          "start": 8,
+          "end": 8.24
+        },
+        {
+          "id": "w21",
+          "text": "ont",
+          "start": 8.24,
+          "end": 8.42
+        },
+        {
+          "id": "w22",
+          "text": "notamment",
+          "start": 8.42,
+          "end": 9.06
+        },
+        {
+          "id": "w23",
+          "text": "étudié",
+          "start": 9.06,
+          "end": 9.42
+        },
+        {
+          "id": "w24",
+          "text": "Mars.",
+          "start": 9.54,
+          "end": 10
+        },
+        {
+          "id": "w25",
+          "text": "Aujourd'hui,",
+          "start": 10.24,
+          "end": 10.84
+        },
+        {
+          "id": "w26",
+          "text": "Mars",
+          "start": 11,
+          "end": 11.1
+        },
+        {
+          "id": "w27",
+          "text": "possède",
+          "start": 11.1,
+          "end": 11.55
+        },
+        {
+          "id": "w28",
+          "text": "une",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "id": "w29",
+          "text": "atmosphère",
+          "start": 11.75,
+          "end": 12.39
+        },
+        {
+          "id": "w30",
+          "text": "très",
+          "start": 12.44,
+          "end": 12.59
+        },
+        {
+          "id": "w31",
+          "text": "fine",
+          "start": 12.7,
+          "end": 12.96
+        },
+        {
+          "id": "w32",
+          "text": "et",
+          "start": 13,
+          "end": 13.14
+        },
+        {
+          "id": "w33",
+          "text": "ne",
+          "start": 13.22,
+          "end": 13.3
+        },
+        {
+          "id": "w34",
+          "text": "dispose",
+          "start": 13.3,
+          "end": 13.83
+        },
+        {
+          "id": "w35",
+          "text": "plus",
+          "start": 13.83,
+          "end": 14.12
+        },
+        {
+          "id": "w36",
+          "text": "d'un",
+          "start": 14.2,
+          "end": 14.42
+        },
+        {
+          "id": "w37",
+          "text": "champ",
+          "start": 14.42,
+          "end": 14.79
+        },
+        {
+          "id": "w38",
+          "text": "magnétique",
+          "start": 14.88,
+          "end": 15.52
+        },
+        {
+          "id": "w39",
+          "text": "global",
+          "start": 15.6,
+          "end": 15.96
+        },
+        {
+          "id": "w40",
+          "text": "comparable",
+          "start": 16.06,
+          "end": 16.71
+        },
+        {
+          "id": "w41",
+          "text": "à",
+          "start": 16.78,
+          "end": 16.85
+        },
+        {
+          "id": "w42",
+          "text": "celui",
+          "start": 16.85,
+          "end": 17.17
+        },
+        {
+          "id": "w43",
+          "text": "de",
+          "start": 17.22,
+          "end": 17.38
+        },
+        {
+          "id": "w44",
+          "text": "la",
+          "start": 17.38,
+          "end": 17.44
+        },
+        {
+          "id": "w45",
+          "text": "Terre.",
+          "start": 17.95,
+          "end": 18
+        },
+        {
+          "id": "w46",
+          "text": "Grâce",
+          "start": 18.15,
+          "end": 18.38
+        },
+        {
+          "id": "w47",
+          "text": "à",
+          "start": 18.38,
+          "end": 18.45
+        },
+        {
+          "id": "w48",
+          "text": "des",
+          "start": 18.45,
+          "end": 18.46
+        },
+        {
+          "id": "w49",
+          "text": "sondes",
+          "start": 18.67,
+          "end": 19.13
+        },
+        {
+          "id": "w50",
+          "text": "spatiales,",
+          "start": 19.13,
+          "end": 20
+        },
+        {
+          "id": "w51",
+          "text": "les",
+          "start": 20,
+          "end": 20.07
+        },
+        {
+          "id": "w52",
+          "text": "scientifiques",
+          "start": 20.17,
+          "end": 20.82
+        },
+        {
+          "id": "w53",
+          "text": "ont",
+          "start": 20.82,
+          "end": 20.96
+        },
+        {
+          "id": "w54",
+          "text": "pu",
+          "start": 20.97,
+          "end": 21.07
+        },
+        {
+          "id": "w55",
+          "text": "observer",
+          "start": 21.07,
+          "end": 21.49
+        },
+        {
+          "id": "w56",
+          "text": "des",
+          "start": 21.49,
+          "end": 21.64
+        },
+        {
+          "id": "w57",
+          "text": "particules",
+          "start": 21.64,
+          "end": 22.12
+        },
+        {
+          "id": "w58",
+          "text": "de",
+          "start": 22.21,
+          "end": 22.25
+        },
+        {
+          "id": "w59",
+          "text": "son",
+          "start": 22.27,
+          "end": 22.41
+        },
+        {
+          "id": "w60",
+          "text": "atmosphère",
+          "start": 22.41,
+          "end": 23
+        },
+        {
+          "id": "w61",
+          "text": "qui",
+          "start": 23,
+          "end": 23.08
+        },
+        {
+          "id": "w62",
+          "text": "s'échappent",
+          "start": 23.14,
+          "end": 23.49
+        },
+        {
+          "id": "w63",
+          "text": "dans",
+          "start": 23.49,
+          "end": 23.65
+        },
+        {
+          "id": "w64",
+          "text": "l'espace,",
+          "start": 23.65,
+          "end": 24
+        },
+        {
+          "id": "w65",
+          "text": "notamment",
+          "start": 24.24,
+          "end": 24.46
+        },
+        {
+          "id": "w66",
+          "text": "sous",
+          "start": 25,
+          "end": 25.07
+        },
+        {
+          "id": "w67",
+          "text": "l'effet",
+          "start": 25.07,
+          "end": 25.63
+        },
+        {
+          "id": "w68",
+          "text": "du",
+          "start": 25.63,
+          "end": 25.79
+        },
+        {
+          "id": "w69",
+          "text": "vent",
+          "start": 25.79,
+          "end": 26.07
+        },
+        {
+          "id": "w70",
+          "text": "solaire.",
+          "start": 26.17,
+          "end": 26.96
+        },
+        {
+          "id": "w71",
+          "text": "Mais",
+          "start": 26.96,
+          "end": 27.24
+        },
+        {
+          "id": "w72",
+          "text": "ils",
+          "start": 27.24,
+          "end": 27.28
+        },
+        {
+          "id": "w73",
+          "text": "ont",
+          "start": 27.28,
+          "end": 27.4
+        },
+        {
+          "id": "w74",
+          "text": "aussi",
+          "start": 27.4,
+          "end": 27.45
+        },
+        {
+          "id": "w75",
+          "text": "découvert",
+          "start": 27.72,
+          "end": 27.95
+        },
+        {
+          "id": "w76",
+          "text": "quelque",
+          "start": 28,
+          "end": 28.22
+        },
+        {
+          "id": "w77",
+          "text": "chose",
+          "start": 28.22,
+          "end": 28.39
+        },
+        {
+          "id": "w78",
+          "text": "d'important.",
+          "start": 28.39,
+          "end": 29
+        },
+        {
+          "id": "w79",
+          "text": "Mars",
+          "start": 29.24,
+          "end": 29.28
+        },
+        {
+          "id": "w80",
+          "text": "n'a",
+          "start": 29.28,
+          "end": 29.45
+        },
+        {
+          "id": "w81",
+          "text": "pas",
+          "start": 29.48,
+          "end": 29.49
+        },
+        {
+          "id": "w82",
+          "text": "perdu",
+          "start": 30,
+          "end": 30.05
+        },
+        {
+          "id": "w83",
+          "text": "son",
+          "start": 30.05,
+          "end": 30.26
+        },
+        {
+          "id": "w84",
+          "text": "atmosphère",
+          "start": 30.26,
+          "end": 30.9
+        },
+        {
+          "id": "w85",
+          "text": "uniquement",
+          "start": 30.96,
+          "end": 31.59
+        },
+        {
+          "id": "w86",
+          "text": "parce",
+          "start": 31.7,
+          "end": 32.01
+        },
+        {
+          "id": "w87",
+          "text": "qu'elle",
+          "start": 32.01,
+          "end": 32.5
+        },
+        {
+          "id": "w88",
+          "text": "n'a",
+          "start": 32.5,
+          "end": 32.71
+        },
+        {
+          "id": "w89",
+          "text": "plus",
+          "start": 32.71,
+          "end": 32.93
+        },
+        {
+          "id": "w90",
+          "text": "de",
+          "start": 33,
+          "end": 33.12
+        },
+        {
+          "id": "w91",
+          "text": "champ",
+          "start": 33.21,
+          "end": 33.48
+        },
+        {
+          "id": "w92",
+          "text": "magnétique",
+          "start": 33.48,
+          "end": 34.08
+        },
+        {
+          "id": "w93",
+          "text": "globale.",
+          "start": 34.18,
+          "end": 34.96
+        },
+        {
+          "id": "w94",
+          "text": "Sa",
+          "start": 34.96,
+          "end": 35.24
+        },
+        {
+          "id": "w95",
+          "text": "gravité",
+          "start": 35.24,
+          "end": 35.46
+        },
+        {
+          "id": "w96",
+          "text": "est",
+          "start": 35.81,
+          "end": 35.83
+        },
+        {
+          "id": "w97",
+          "text": "plus",
+          "start": 36,
+          "end": 36.21
+        },
+        {
+          "id": "w98",
+          "text": "faible",
+          "start": 36.21,
+          "end": 36.66
+        },
+        {
+          "id": "w99",
+          "text": "que",
+          "start": 36.66,
+          "end": 36.89
+        },
+        {
+          "id": "w100",
+          "text": "celle",
+          "start": 36.89,
+          "end": 37.22
+        },
+        {
+          "id": "w101",
+          "text": "de",
+          "start": 37.27,
+          "end": 37.39
+        },
+        {
+          "id": "w102",
+          "text": "la",
+          "start": 37.44,
+          "end": 37.57
+        },
+        {
+          "id": "w103",
+          "text": "Terre.",
+          "start": 37.57,
+          "end": 38
+        },
+        {
+          "id": "w104",
+          "text": "Et",
+          "start": 38,
+          "end": 38.24
+        },
+        {
+          "id": "w105",
+          "text": "plusieurs",
+          "start": 38.24,
+          "end": 38.46
+        },
+        {
+          "id": "w106",
+          "text": "mécanismes",
+          "start": 38.75,
+          "end": 39.34
+        },
+        {
+          "id": "w107",
+          "text": "ont",
+          "start": 39.34,
+          "end": 39.4
+        },
+        {
+          "id": "w108",
+          "text": "fait",
+          "start": 39.54,
+          "end": 39.78
+        },
+        {
+          "id": "w109",
+          "text": "évoluer",
+          "start": 39.78,
+          "end": 40.22
+        },
+        {
+          "id": "w110",
+          "text": "son",
+          "start": 40.22,
+          "end": 40.39
+        },
+        {
+          "id": "w111",
+          "text": "atmosphère",
+          "start": 40.44,
+          "end": 41.04
+        },
+        {
+          "id": "w112",
+          "text": "au",
+          "start": 41.04,
+          "end": 41.14
+        },
+        {
+          "id": "w113",
+          "text": "cours",
+          "start": 41.22,
+          "end": 41.49
+        },
+        {
+          "id": "w114",
+          "text": "de",
+          "start": 41.49,
+          "end": 41.62
+        },
+        {
+          "id": "w115",
+          "text": "milliards",
+          "start": 41.62,
+          "end": 42.12
+        },
+        {
+          "id": "w116",
+          "text": "d'années.",
+          "start": 42.21,
+          "end": 43
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "path": "assets/voice/s07.wav",
+      "duration_s": 27.72,
+      "words": []
+    },
+    {
+      "id": "s08",
+      "path": "assets/voice/s08.wav",
+      "duration_s": 11.36,
+      "words": [
+        {
+          "id": "w0",
+          "text": "D'ailleurs,",
+          "start": 0,
+          "end": 0.86
+        },
+        {
+          "id": "w1",
+          "text": "lorsque",
+          "start": 1.35,
+          "end": 1.42
+        },
+        {
+          "id": "w2",
+          "text": "des",
+          "start": 1.42,
+          "end": 1.59
+        },
+        {
+          "id": "w3",
+          "text": "particules",
+          "start": 1.59,
+          "end": 2.17
+        },
+        {
+          "id": "w4",
+          "text": "chargées",
+          "start": 2.27,
+          "end": 2.68
+        },
+        {
+          "id": "w5",
+          "text": "pénètrent",
+          "start": 2.68,
+          "end": 3.27
+        },
+        {
+          "id": "w6",
+          "text": "dans",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "id": "w7",
+          "text": "notre",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "id": "w8",
+          "text": "environnement",
+          "start": 3.68,
+          "end": 4.42
+        },
+        {
+          "id": "w9",
+          "text": "magnétique",
+          "start": 4.42,
+          "end": 4.87
+        },
+        {
+          "id": "w10",
+          "text": "près",
+          "start": 5.27,
+          "end": 5.33
+        },
+        {
+          "id": "w11",
+          "text": "des",
+          "start": 5.33,
+          "end": 5.58
+        },
+        {
+          "id": "w12",
+          "text": "pôles",
+          "start": 5.58,
+          "end": 5.84
+        },
+        {
+          "id": "w13",
+          "text": "et",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "id": "w14",
+          "text": "rencontrent",
+          "start": 6.35,
+          "end": 6.83
+        },
+        {
+          "id": "w15",
+          "text": "les",
+          "start": 6.91,
+          "end": 7.02
+        },
+        {
+          "id": "w16",
+          "text": "gaz",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "id": "w17",
+          "text": "de",
+          "start": 7.28,
+          "end": 7.41
+        },
+        {
+          "id": "w18",
+          "text": "l'atmosphère,",
+          "start": 7.41,
+          "end": 9
+        },
+        {
+          "id": "w19",
+          "text": "elles",
+          "start": 9,
+          "end": 9.16
+        },
+        {
+          "id": "w20",
+          "text": "peuvent",
+          "start": 9.16,
+          "end": 9.4
+        },
+        {
+          "id": "w21",
+          "text": "produire",
+          "start": 9.4,
+          "end": 9.88
+        },
+        {
+          "id": "w22",
+          "text": "les",
+          "start": 10.08,
+          "end": 10.12
+        },
+        {
+          "id": "w23",
+          "text": "aurores",
+          "start": 10.12,
+          "end": 10.5
+        },
+        {
+          "id": "w24",
+          "text": "polaires.",
+          "start": 10.5,
+          "end": 10.97
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "path": "assets/voice/s09.wav",
+      "duration_s": 26.96,
+      "words": []
+    },
+    {
+      "id": "s10",
+      "path": "assets/voice/s10.wav",
+      "duration_s": 4.44,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Et",
+          "start": 0.01,
+          "end": 0.08
+        },
+        {
+          "id": "w1",
+          "text": "toi,",
+          "start": 0.24,
+          "end": 0.42
+        },
+        {
+          "id": "w2",
+          "text": "tu",
+          "start": 0.42,
+          "end": 0.54
+        },
+        {
+          "id": "w3",
+          "text": "pensais",
+          "start": 0.54,
+          "end": 0.96
+        },
+        {
+          "id": "w4",
+          "text": "que",
+          "start": 1.02,
+          "end": 1.11
+        },
+        {
+          "id": "w5",
+          "text": "c'était",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "id": "w6",
+          "text": "le",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "id": "w7",
+          "text": "champ",
+          "start": 1.71,
+          "end": 1.98
+        },
+        {
+          "id": "w8",
+          "text": "magnétique?",
+          "start": 1.99,
+          "end": 2.63
+        },
+        {
+          "id": "w9",
+          "text": "Dis-le-moi",
+          "start": 2.99,
+          "end": 3.43
+        },
+        {
+          "id": "w10",
+          "text": "en",
+          "start": 3.43,
+          "end": 3.81
+        },
+        {
+          "id": "w11",
+          "text": "commentaire!",
+          "start": 3.81,
+          "end": 4.3
+        }
+      ]
+    }
+  ],
+  "sfx": [],
+  "total_duration_s": 197.16
+}

@@ -70,14 +70,14 @@
         font-family: "Tektur", sans-serif; font-weight: 500; font-size: 66px; line-height: 1.1; color: var(--creme);
         text-shadow: 0 3px 0 rgba(0,0,0,0.45), 0 0 24px rgba(5,6,20,0.9);
       }
-      .cap .w { display: inline-block; margin: 0 9px; transform-origin: 50% 70%; }
+      .cap .w { display: inline-block; margin: 0 14px; transform-origin: 50% 70%; }
 
       /* Médaillon narratrice */
       #medal { position: absolute; left: 44px; top: 1400px; width: 250px; height: 250px; opacity: 0; }
       #medal .ring { position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--or); box-shadow: 0 0 30px rgba(201,164,106,0.35); }
       #medal .disc { position: absolute; inset: 10px; border-radius: 50%; overflow: hidden;
         background: radial-gradient(circle at 50% 35%, #313a74 0%, #1b1f3b 70%); }
-      #medal .face { position: absolute; left: -8%; top: 6%; width: 116%; opacity: 0; }
+      #medal .face { position: absolute; left: 8%; top: 10%; width: 84%; opacity: 0; }
       #medal .name { position: absolute; left: 50%; bottom: -20px; transform: translateX(-50%);
         font-family: "Tektur", sans-serif; font-size: 24px; letter-spacing: 3px; color: var(--nuit);
         background: var(--or); padding: 4px 16px; border-radius: 20px; white-space: nowrap; }
@@ -95,12 +95,12 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="69.8" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="201.9" data-width="1080" data-height="1920">
 
-      <canvas id="space" class="clip" data-start="0" data-duration="69.8" data-track-index="0" width="1080" height="1920"></canvas>
-      <div id="vignette" class="layer clip" data-start="0" data-duration="69.8" data-track-index="1"></div>
+      <canvas id="space" class="clip" data-start="0" data-duration="201.9" data-track-index="0" width="1080" height="1920"></canvas>
+      <div id="vignette" class="layer clip" data-start="0" data-duration="201.9" data-track-index="1"></div>
 
-      <div id="ui" class="layer clip" data-start="0" data-duration="69.8" data-track-index="2">
+      <div id="ui" class="layer clip" data-start="0" data-duration="201.9" data-track-index="2">
       <div id="brand" >ASTRONORI · LES GRANDES QUESTIONS</div>
 
       <!-- Scène 1 : accroche -->
@@ -225,14 +225,14 @@
       </div>
 
       <!-- Son -->
-      <audio id="vo" src="assets/voix/narration-master.wav" data-start="0" data-duration="69.765" data-track-index="40"></audio>
-      <audio id="bgm" src="assets/audio/bgm.mp3" data-start="0" data-duration="69.8" data-track-index="41" data-volume="0.22"></audio>
-      <audio id="sfx-w1" src="assets/audio/whoosh.wav" data-start="9.35" data-duration="0.9" data-track-index="42" data-volume="0.9"></audio>
-      <audio id="sfx-w2" src="assets/audio/whoosh.wav" data-start="34.8" data-duration="0.9" data-track-index="43" data-volume="1"></audio>
-      <audio id="sfx-w3" src="assets/audio/whoosh.wav" data-start="45.2" data-duration="0.9" data-track-index="44" data-volume="1"></audio>
-      <audio id="sfx-w4" src="assets/audio/whoosh.wav" data-start="50.1" data-duration="0.9" data-track-index="45" data-volume="0.8"></audio>
-      <audio id="sfx-c1" src="assets/audio/chime.wav" data-start="29.6" data-duration="2.2" data-track-index="46" data-volume="0.7"></audio>
-      <audio id="sfx-c2" src="assets/audio/chime.wav" data-start="54.4" data-duration="2.2" data-track-index="47" data-volume="0.6"></audio>
+      <audio id="vo" src="assets/voice/narration-gemini.wav" data-start="0" data-duration="201.86" data-track-index="40"></audio>
+      <audio id="bgm" src="assets/audio/bgm-long.mp3" data-start="0" data-duration="201.9" data-track-index="41" data-volume="0.22"></audio>
+      <audio id="sfx-w1" src="assets/audio/whoosh.wav" data-start="27.38" data-duration="0.9" data-track-index="42" data-volume="0.9"></audio>
+      <audio id="sfx-w2" src="assets/audio/whoosh.wav" data-start="94.37" data-duration="0.9" data-track-index="43" data-volume="1"></audio>
+      <audio id="sfx-w3" src="assets/audio/whoosh.wav" data-start="128.98" data-duration="0.9" data-track-index="44" data-volume="1"></audio>
+      <audio id="sfx-w4" src="assets/audio/whoosh.wav" data-start="157.15" data-duration="0.9" data-track-index="45" data-volume="0.8"></audio>
+      <audio id="sfx-c1" src="assets/audio/chime.wav" data-start="73.84" data-duration="2.2" data-track-index="46" data-volume="0.7"></audio>
+      <audio id="sfx-c2" src="assets/audio/chime.wav" data-start="167.42" data-duration="2.2" data-track-index="47" data-volume="0.6"></audio>
     </div>
 
     <script>
@@ -246,14 +246,18 @@
         return w ? w.s : after;
       }
       window.__CUES = {
-        disparaisse: T("disparaisse."), emporter: T("emporterait-il", 3),
-        vent: T("vent", 14), bouclier: T("bouclier", 16.5), champ: T("champ", 18), fer: T("fer", 20),
-        devie: T("dévie", 22), mais: SEG[5], gravite: T("gravité.", 28), molecule: T("molécule,", 29),
-        echapper: T("s'échapper.", 32), mars: T("Mars.", 34), sondes: T("sondes", 37), faible: T("faible,", 40),
-        milliards: T("milliards", 42), terre: SEG[7], petit: T("petit", 46), poles: T("pôles,", 51),
-        aurores: T("aurores", 53), bref: SEG[9], g1: T("gravité", 57), g2: T("champ", 59), g3: T("l'atmosphère", 61),
-        toi: SEG[10],
+        disparaisse: T("disparaisse.", 0), emporter: T("atmosphère,", 1),
+        champ: T("champ", SEG[4]), fer: T("fer", SEG[4]), magneto: T("magnétosphère.", SEG[4]),
+        bouclier: T("bouclier", SEG[4] + 5), devie: T("dévie", SEG[4] + 5),
+        gravite: T("gravité,", SEG[5]), molecule: T("molécules", SEG[5]), echapper: T("s'échapper", SEG[5]),
+        mars: T("Mars.", SEG[6]), sondes: T("sondes", SEG[6]), decouvert: T("découvert", SEG[6]),
+        faible: T("faible", SEG[6]), milliards: T("milliards", SEG[6]),
+        petit: T("petite", SEG[7]), couvercle: T("couvercle", SEG[7]),
+        poles: T("pôles,", SEG[8]), aurores: T("aurores", SEG[8]),
+        g1: T("gravité", SEG[9]), g2: T("champ", SEG[9]),
       };
+      window.__CUES.g3 = T("l'atmosphère", window.__CUES.g2);
+      window.__CUES.marsT = window.__CUES.mars - 0.6; // bascule de la caméra vers Mars
       const C = window.__CUES;
 
       // ---------- Sous-titres ----------
@@ -275,7 +279,7 @@
         tl.fromTo("#cap-" + i, { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.14, ease: "power2.out" }, g.s);
         g.w.forEach((w, j) => {
           tl.fromTo("#cw-" + i + "-" + j, { color: "#f3ebdd", scale: 1 },
-            { color: "#e0b878", scale: 1.08, duration: 0.08, ease: "power1.out" }, w.s);
+            { color: "#e0b878", scale: 1.04, duration: 0.08, ease: "power1.out" }, w.s);
           tl.to("#cw-" + i + "-" + j, { scale: 1, duration: 0.18, ease: "power1.inOut" }, w.s + 0.1);
         });
         tl.to("#cap-" + i, { autoAlpha: 0, duration: 0.05 }, g.e - 0.05);
@@ -319,8 +323,8 @@
       showTag("#tag-sun", SEG[3] + 1.0, SEG[4] - 0.2);
       showTag("#tag-earth", SEG[3] + 1.3, SEG[4] - 0.2);
       // 4. Bouclier
-      showTitle("#t-shield", C.bouclier - 0.1, C.fer - 0.2);
-      showTag("#tag-core", C.fer, C.devie + 0.3);
+      showTitle("#t-shield", C.magneto - 1.0, SEG[5]);
+      showTag("#tag-core", C.fer, C.magneto - 1.3);
       // 5. Gravité
       showTitle("#t-not", SEG[5] + 0.1, C.gravite - 0.6);
       showTitle("#t-grav", C.gravite - 0.15, SEG[6] - 0.1);
@@ -330,9 +334,9 @@
       tl.to("#arrows", { autoAlpha: 0, duration: 0.3 }, C.echapper);
       showTag("#tag-mol", C.molecule - 0.3, SEG[6] - 0.15);
       // 6. Mars
-      tl.to("#flash", { opacity: 1, duration: 0.25, ease: "power2.in" }, SEG[6] - 0.35);
-      tl.to("#flash", { opacity: 0, duration: 0.45, ease: "power2.out" }, SEG[6] - 0.1);
-      showTitle("#t-mars", C.mars - 0.15, C.faible - 0.5);
+      tl.to("#flash", { opacity: 1, duration: 0.25, ease: "power2.in" }, C.marsT - 0.05);
+      tl.to("#flash", { opacity: 0, duration: 0.45, ease: "power2.out" }, C.marsT + 0.2);
+      showTitle("#t-mars", C.mars - 0.15, C.sondes - 0.3);
       showTag("#tag-leak", C.sondes, C.faible - 0.3);
       tl.fromTo("#cmp", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, C.faible - 0.6);
       tl.from("#bar-earth", { scaleX: 0, duration: 0.7, ease: "power2.out" }, C.faible - 0.4);
@@ -361,9 +365,9 @@
 
       // ---------- Médaillon : expressions selon le contexte ----------
       const FACES = [
-        [0.35, "reveuse"], [SEG[3] - 0.1, "sourire"], [C.bouclier - 0.3, "sourire-main"],
-        [SEG[5] - 0.05, "etonnee"], [C.gravite + 0.4, "sourire"], [SEG[6] + 0.2, "reveuse"],
-        [SEG[7] - 0.1, "clin-oeil"], [SEG[8] - 0.1, "yeux-fermes"], [SEG[9] - 0.1, "sourire"],
+        [0.35, "reveuse"], [SEG[3] - 0.1, "sourire"], [SEG[4] - 0.1, "sourire-main"],
+        [SEG[5] - 0.05, "etonnee"], [C.gravite + 0.4, "sourire"], [SEG[6] + 0.2, "reveuse"], [C.decouvert - 0.2, "etonnee"], [C.faible - 0.3, "sourire-main"],
+        [SEG[7] - 0.1, "clin-oeil"], [C.couvercle - 0.3, "sourire"], [SEG[8] - 0.1, "yeux-fermes"], [SEG[9] - 0.1, "sourire"],
       ];
       let prev = null;
       FACES.forEach(([t, f]) => {
@@ -377,7 +381,7 @@
       tl.fromTo("#medal", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(2)", immediateRender: false }, SEG[3] - 0.1);
       tl.to("#medal", { autoAlpha: 0, scale: 0.6, duration: 0.3 }, SEG[10] - 0.3);
 
-      tl.to({}, { duration: 0.01 }, 69.79);
+      tl.to({}, { duration: 0.01 }, 201.85);
       window.__timelines = window.__timelines || {};
       window.__timelines["main"] = tl;
       tl.seek(0);
@@ -682,17 +686,17 @@
         { t: 0, b: 0.01, p0: V(0.4, -0.2, 7.6), p1: V(0.2, 0.0, 5.0), g0: V(0, 0.15, 0), g1: V(0, 0.2, 0) },
         { t: SEG[2] - 0.2, b: 1.0, p0: V(0.3, -2.1, 6.4), p1: V(-0.2, -2.3, 6.0), g0: V(0, 0.9, 0), g1: V(0, 1.0, 0) },
         { t: SEG[3] - 0.25, b: 1.3, p0: V(2.2, 3.6, 33.0), p1: V(1.8, 3.9, 30.5), g0: V(-2.8, 4.1, 1.6), g1: V(-2.9, 4.2, 1.6) },
-        { t: C.bouclier - 0.6, b: 1.4, p0: V(1.2, 1.6, 9.4), p1: V(0.6, 1.0, 7.4), g0: V(-0.4, 1.3, 0), g1: V(-0.2, 0.8, 0) },
+        { t: SEG[4] - 0.4, b: 1.4, p0: V(1.2, 1.6, 9.4), p1: V(0.6, 1.0, 7.4), g0: V(-0.4, 1.3, 0), g1: V(-0.2, 0.8, 0) },
         { t: C.fer - 0.3, b: 0.9, p0: V(0.4, 0.3, 4.4), p1: V(0.3, 0.2, 4.0), g0: V(0, 0.15, 0), g1: V(0, 0.1, 0) },
-        { t: C.devie - 0.1, b: 1.0, p0: V(1.0, 1.4, 8.6), p1: V(0.8, 1.2, 8.0), g0: V(-0.3, 1.0, 0), g1: V(-0.3, 0.9, 0) },
+        { t: C.magneto - 1.2, b: 1.0, p0: V(1.0, 1.4, 8.6), p1: V(0.8, 1.2, 8.0), g0: V(-0.3, 1.0, 0), g1: V(-0.3, 0.9, 0) },
         { t: C.gravite - 0.9, b: 1.2, p0: V(0, 0.95, 3.15), p1: V(0, 0.8, 2.8), g0: V(0, 1.18, 0), g1: V(0, 1.12, 0) },
-        { t: SEG[6] - 0.3, b: 0.35, p0: MARS.clone().add(V(0.35, 0.25, 2.7)), p1: MARS.clone().add(V(0.05, 0.1, 2.25)), g0: MARS.clone().add(V(0.1, -0.15, 0)), g1: MARS.clone().add(V(0.15, -0.2, 0)) },
+        { t: C.marsT, b: 0.35, p0: MARS.clone().add(V(0.35, 0.25, 2.7)), p1: MARS.clone().add(V(0.05, 0.1, 2.25)), g0: MARS.clone().add(V(0.1, -0.15, 0)), g1: MARS.clone().add(V(0.15, -0.2, 0)) },
         { t: SEG[7] - 0.3, b: 0.35, p0: V(0.5, 0.4, 5.0), p1: V(0.2, 0.3, 4.3), g0: V(0, 0.45, 0), g1: V(0, 0.4, 0) },
         { t: C.poles - 1.6, b: 1.4, p0: nightCam.clone().multiplyScalar(1.15), p1: nightCam.clone(), g0: magAxis.clone().multiplyScalar(0.55), g1: magAxis.clone().multiplyScalar(0.7) },
         { t: SEG[9] - 0.2, b: 1.3, p0: V(0.6, 0.5, 8.0), p1: V(-0.3, 0.3, 7.2), g0: V(0, 1.1, 0), g1: V(0, 1.1, 0) },
         { t: SEG[10] - 0.2, b: 1.0, p0: V(0, -1.6, 7.0), p1: V(0, -1.8, 6.4), g0: V(0, 1.4, 0), g1: V(0, 1.5, 0) },
       ];
-      SHOTS.forEach((s, i) => (s.end = i + 1 < SHOTS.length ? SHOTS[i + 1].t : 70));
+      SHOTS.forEach((s, i) => (s.end = i + 1 < SHOTS.length ? SHOTS[i + 1].t : 999));
       function shotAt(s, t) {
         const k = ease((t - s.t) / (s.end - s.t));
         return { p: s.p0.clone().lerp(s.p1, k), g: s.g0.clone().lerp(s.g1, k) };
@@ -720,7 +724,7 @@
         const fOn = smooth((t - 0.4) / 1.6) * (1 - smooth((t - C.disparaisse + 0.2) / 0.6));      // accroche : présent puis disparaît
         const fShield = smooth((t - C.champ + 0.6) / 1.6);                                           // réapparaît au bouclier
         const fNot = 1 - 0.75 * smooth((t - SEG[5]) / 0.8) + 0.75 * smooth((t - SEG[7]) / 0.8);    // s'efface pendant la gravité
-        const fMars = 1 - smooth((t - SEG[6] + 0.4) / 0.3) + smooth((t - SEG[7] + 0.2) / 0.3);
+        const fMars = 1 - smooth((t - C.marsT - 0.1) / 0.3) + smooth((t - SEG[7] + 0.2) / 0.3);
         const fAur = 1 - 0.6 * smooth((t - SEG[8]) / 0.8) + 0.6 * smooth((t - SEG[9]) / 0.8);
         let field = t < SEG[3] ? fOn * 0.7 : fShield * fNot * clamp(fMars) * fAur;
         field *= 1 - smooth((t - SEG[10]) / 1.0) * 0.6;
@@ -729,26 +733,26 @@
         fieldMeshes.forEach((m, i) => { const d = clamp(draw * 1.25 - (i % 7) * 0.03); m.geometry.setDrawRange(0, Math.floor(m.userData.total * d / 3) * 3); });
 
         // Noyau : la Terre devient translucide
-        const coreK = win(t, C.fer - 0.2, C.devie + 0.2, 0.55);
+        const coreK = win(t, C.fer - 0.2, C.magneto - 1.0, 0.55);
         earthMat.opacity = 1 - 0.82 * coreK; cloudsMat.opacity = 0.8 * (1 - coreK);
         earthMat.depthWrite = coreK < 0.5;
         coreMat.uniforms.uAlpha.value = coreK; innerCore.material.opacity = coreK; coreGlow.material.opacity = 0.8 * coreK;
 
         // Vent solaire autour de la Terre
-        const windVis = (smooth((t - 1.0) / 1.0) * (1 - smooth((t - SEG[2] + 0.4) / 0.4))) + win(t, SEG[3] - 0.2, SEG[5] + 1.5, 0.6) + win(t, SEG[7] - 0.2, SEG[8] + 0.8, 0.5) + win(t, SEG[9], 70, 0.8) * 0.8;
+        const windVis = (smooth((t - 1.0) / 1.0) * (1 - smooth((t - SEG[2] + 0.4) / 0.4))) + win(t, SEG[3] - 0.2, SEG[5] + 1.5, 0.6) + win(t, SEG[7] - 0.2, SEG[8] + 0.8, 0.5) + win(t, SEG[9], 999, 0.8) * 0.8;
         wind.mat.opacity = 0.85 * clamp(windVis) * clamp(fMars);
         const shield = t < SEG[3] ? fOn : smooth((t - C.champ + 0.2) / 2.0);
         updateWind(wind, t, V(0, 0, 0), clamp(shield), -11, 7, 1.9, 2.9, 0.16);
 
         // Atmosphère
-        const atmoBoost = 1 + 0.9 * win(t, SEG[5] + 2.0, SEG[6] - 0.2, 0.8) + 0.4 * win(t, SEG[9] + 4.0, 70, 1.0);
+        const atmoBoost = 1 + 0.9 * win(t, SEG[5] + 2.0, C.marsT, 0.8) + 0.4 * win(t, SEG[9] + 4.0, 999, 1.0);
         atmoMat.uniforms.uPower.value = atmoBoost * (1 - 0.3 * coreK); rimMat.uniforms.uPower.value = 0.55 * atmoBoost;
 
         // Gravité : molécules
-        updateMolecules(t, win(t, C.gravite - 0.4, SEG[6] - 0.3, 0.6));
+        updateMolecules(t, win(t, C.gravite - 0.4, C.marsT + 0.1, 0.6));
 
         // Mars
-        const marsVis = win(t, SEG[6] - 0.5, SEG[7] + 0.1, 0.25);
+        const marsVis = win(t, C.marsT - 0.2, SEG[7] + 0.1, 0.25);
         marsGroup.visible = marsVis > 0.01; leak.visible = marsGroup.visible; marsWind.pts.visible = marsGroup.visible;
         leakMat.opacity = 0.95 * smooth((t - C.sondes + 0.6) / 1.0) * marsVis;
         marsWind.mat.opacity = 0.7 * marsVis;
@@ -759,7 +763,7 @@
         updatePolarWind(t);
 
         // Aurores
-        auroraMat.uniforms.uAlpha.value = win(t, C.poles - 0.8, SEG[9] + 1.2, 0.8) + 0.5 * win(t, SEG[9] + 1.2, 70, 1.0);
+        auroraMat.uniforms.uAlpha.value = win(t, C.poles - 0.8, SEG[9] + 1.2, 0.8) + 0.5 * win(t, SEG[9] + 1.2, 999, 1.0);
 
         // Soleil visible surtout quand on le cadre
         sunGroup.visible = true;

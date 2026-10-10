@@ -1,22 +1,21 @@
-# Script — « Qu'est-ce qui retient notre air ? »
+# Script V2 — « Qu'est-ce qui retient notre air ? »
 
-Version adaptée pour ~1 minute (voix off AstroNori). Le script d'origine de Noriane est
-gardé tel quel dans `script-original.md`. Chaque bloc = une scène de la vidéo.
+Basé sur le nouveau script de Noriane, repris quasi mot pour mot.
+Petites retouches seulement : ponctuation, « Est-ce que… pourrait-elle » → « Est-ce que… pourrait »,
+« Pour comprendre, il faut d'abord comprendre » → « …il faut d'abord savoir ».
+Ajoutés pour coller aux images : « Salut les astro-curieux, c'est AstroNori ! » et la question finale.
+
+Voix : Gemini TTS, voix « Achernar » (féminine, douce). Durée de la voix : ~3 min 22.
 
 | # | Scène | Voix off | Expression d'AstroNori |
 |---|---|---|---|
-| 1 | Accroche | Imagine que demain, le champ magnétique de la Terre disparaisse. Le vent solaire emporterait-il tout notre air ? | rêveuse, main sous le menton |
-| 2 | Présentation | Salut les astro-curieux, c'est AstroNori ! | grand sourire, en pied avec le casque |
-| 3 | Vent solaire | Le Soleil ne nous envoie pas que de la lumière. Il souffle aussi un flot de particules électriques : le vent solaire. | sourire qui explique |
-| 4 | Bouclier | Heureusement, la Terre a un bouclier invisible : son champ magnétique, créé par le fer liquide de son noyau. Il dévie la plupart de ces particules. | sourire, main sous le menton |
-| 5 | Le twist | Mais ce bouclier ne retient pas notre air. Ce qui le retient… c'est la gravité. Elle attire chaque molécule, et presque aucune n'a assez d'énergie pour s'échapper. | moue étonnée « oh ! » |
-| 6 | Mars | La preuve ? Mars. Plus de champ magnétique global, et des sondes ont vu son air s'enfuir. Mais sa gravité est aussi bien plus faible, et ça s'est joué sur des milliards d'années. | pensive, assise |
-| 7 | La Terre fuit aussi | Et la Terre ? Même avec son bouclier, elle perd un tout petit peu d'air chaque jour. | clin d'œil |
-| 8 | Aurores | Bonus : quand ces particules se faufilent près des pôles, elles font briller l'air. Les aurores polaires ! | yeux fermés, émerveillée |
-| 9 | Conclusion | Bref, pas de bouclier magique : la gravité garde l'air, le champ magnétique dévie le vent solaire, et l'atmosphère filtre les rayons dangereux. | sourire doux |
-| 10 | Question | Et toi, tu pensais que c'était le champ magnétique ? Dis-le moi en commentaire ! | clin d'œil |
-
-## Direction de voix
-- Voix féminine, douce et posée, débit légèrement plus rapide qu'une conversation.
-- Petite pause avant chaque révélation : « Ce qui le retient… c'est la gravité. »
-- Mots appuyés : « disparaisse », « vent solaire », « bouclier », « gravité », « Mars », « aurores », « trio ».
+| 1 | Accroche | Imagine que demain, le champ magnétique terrestre disparaisse. Est-ce que notre atmosphère, cette couche de gaz qui nous permet de respirer et de vivre sur Terre, pourrait disparaître sans son champ magnétique ? Et surtout, est-ce que c'est ce champ magnétique qui sert de bouclier pour que notre air ne s'échappe pas dans l'espace ? | rêveuse |
+| 2 | Présentation | Salut les astro-curieux, c'est AstroNori ! Pour comprendre, il faut d'abord savoir ce qui se passe autour de la Terre. | en pied, avec le casque |
+| 3 | Vent solaire | Notre Soleil ne nous envoie pas que de la lumière et de la chaleur. Il libère aussi en permanence un flux de particules chargées, qu'on appelle le vent solaire. Ces particules voyagent à travers l'espace et entrent en interaction avec toutes les planètes qu'elles rencontrent. | sourire |
+| 4 | Bouclier magnétique | Heureusement, pour contrer le vent solaire, la Terre possède un champ magnétique. Il est produit par les mouvements du fer liquide dans son noyau externe. C'est ce champ qui s'étend dans l'espace et qui forme une région qu'on appelle la magnétosphère. On peut imaginer cette région comme un bouclier invisible, qui dévie une grande partie des particules du vent solaire. | sourire, main sous le menton |
+| 5 | La gravité | Mais attention : ce n'est pas ce bouclier qui retient notre atmosphère. C'est la gravité, qui maintient les gaz autour de la Terre. Les molécules de l'air sont attirées par notre planète, et la plupart n'ont pas suffisamment d'énergie pour s'échapper dans l'espace. | étonnée, puis sourire |
+| 6 | Mars | Alors, comment les scientifiques ont-ils compris que le champ magnétique ne suffisait pas à expliquer la présence de notre atmosphère ? Ils ont notamment étudié Mars. Aujourd'hui, Mars possède une atmosphère très fine, et ne dispose plus d'un champ magnétique global comparable à celui de la Terre. Grâce à des sondes spatiales, les scientifiques ont pu observer des particules de son atmosphère qui s'échappent dans l'espace, notamment sous l'effet du vent solaire. Mais ils ont aussi découvert quelque chose d'important : Mars n'a pas perdu son atmosphère uniquement parce qu'elle n'a plus de champ magnétique global. Sa gravité est plus faible que celle de la Terre, et plusieurs mécanismes ont fait évoluer son atmosphère au cours de milliards d'années. | rêveuse, étonnée, puis sourire |
+| 7 | La Terre perd aussi un peu d'air | Et la Terre ? Bien qu'elle possède un champ magnétique, ça ne l'empêche pas de perdre, elle aussi, une petite quantité de particules atmosphériques dans l'espace. Les satellites permettent justement de mesurer ces pertes. Les scientifiques ont donc compris que le champ magnétique n'est pas un couvercle qui enferme l'air autour de notre planète. Il modifie surtout la manière dont le vent solaire interagit avec notre environnement, et peut limiter certaines formes de perte atmosphérique. | clin d'œil, puis sourire |
+| 8 | Aurores polaires | D'ailleurs, lorsque des particules chargées pénètrent dans notre environnement magnétique près des pôles, et rencontrent les gaz de l'atmosphère, elles peuvent produire les aurores polaires. | yeux fermés, émerveillée |
+| 9 | Conclusion | Finalement, plusieurs mécanismes travaillent ensemble : la gravité aide à maintenir l'atmosphère, le champ magnétique dévie une grande partie du vent solaire, et l'atmosphère nous protège, notamment en absorbant une partie des rayonnements nocifs. La Terre n'est donc pas protégée par un seul bouclier magique. C'est l'interaction entre plusieurs phénomènes physiques qui préserve notre environnement, et les conditions nécessaires à la vie. | sourire doux |
+| 10 | Question au public | Et toi, tu pensais que c'était le champ magnétique ? Dis-le moi en commentaire ! | en pied, avec le casque |
