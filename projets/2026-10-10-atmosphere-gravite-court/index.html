@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/data.js"></script>
+    <style>
+      @font-face { font-family: "Tektur"; font-weight: 500; src: url("assets/fonts/Tektur-Medium.ttf"); }
+      @font-face { font-family: "Tektur"; font-weight: 400; src: url("assets/fonts/Tektur-Regular.ttf"); }
+      @font-face { font-family: "Jura"; font-weight: 300; src: url("assets/fonts/Jura-Light.ttf"); }
+      @font-face { font-family: "Jura"; font-weight: 500; src: url("assets/fonts/Jura-Medium.ttf"); }
+      :root { --nuit: #1b1f3b; --creme: #f3ebdd; --or: #c9a46a; --cuivre: #d08a52; --bleu: #8fc4ff; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0d1024; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0d1024; }
+      .layer { position: absolute; inset: 0; }
+      #space { width: 1080px; height: 1920px; display: block; }
+      #vignette {
+        background: radial-gradient(ellipse 80% 60% at 50% 42%, rgba(0,0,0,0) 55%, rgba(5,6,18,0.75) 100%),
+                    linear-gradient(180deg, rgba(8,10,26,0.55) 0%, rgba(8,10,26,0) 22%, rgba(8,10,26,0) 58%, rgba(8,10,26,0.7) 100%);
+        pointer-events: none;
+      }
+      #flash { background: radial-gradient(circle at 50% 45%, rgba(220,235,255,0.95), rgba(140,170,255,0.4) 50%, rgba(0,0,0,0) 80%); opacity: 0; }
+
+      /* Titres */
+      .title { position: absolute; left: 70px; right: 70px; top: 230px; text-align: center; opacity: 0; }
+      .kicker { font-family: "Jura", sans-serif; font-weight: 500; font-size: 34px; letter-spacing: 10px; color: var(--or); text-transform: uppercase; }
+      .headline { font-family: "Tektur", sans-serif; font-weight: 500; font-size: 84px; line-height: 1.02; color: var(--creme); text-transform: uppercase; margin-top: 18px; text-shadow: 0 6px 30px rgba(0,0,0,0.55); }
+      .headline em { font-style: normal; color: var(--or); }
+      .headline .hot { color: var(--cuivre); }
+      .sub { font-family: "Jura", sans-serif; font-weight: 500; font-size: 40px; color: var(--creme); margin-top: 18px; opacity: 0.9; }
+      .line-mask { display: block; overflow: hidden; padding-bottom: 6px; }
+      .line-mask > span { display: inline-block; }
+
+      /* Étiquettes */
+      .tag {
+        position: absolute; opacity: 0; display: flex; align-items: center; gap: 16px;
+        font-family: "Tektur", sans-serif; font-weight: 500; font-size: 38px; letter-spacing: 3px; color: var(--creme);
+        padding: 14px 26px; border: 2px solid var(--or); border-radius: 50px; background: rgba(17,20,44,0.72); white-space: nowrap;
+      }
+      .tag .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--or); box-shadow: 0 0 18px var(--or); }
+
+      /* Cartes */
+      .card {
+        position: absolute; left: 110px; width: 860px; opacity: 0; display: flex; align-items: center; gap: 28px;
+        padding: 26px 34px; border-radius: 28px; background: rgba(17,20,44,0.82); border: 2px solid rgba(201,164,106,0.55);
+        box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      }
+      .card .num { font-family: "Tektur", sans-serif; font-weight: 500; font-size: 64px; color: var(--or); width: 70px; text-align: center; }
+      .card .big { font-family: "Tektur", sans-serif; font-weight: 500; font-size: 44px; color: var(--creme); letter-spacing: 1px; }
+      .card .small { font-family: "Jura", sans-serif; font-weight: 500; font-size: 34px; color: var(--bleu); margin-top: 4px; }
+
+      /* Comparaison gravité */
+      #cmp { position: absolute; left: 110px; width: 860px; top: 270px; opacity: 0; }
+      .bar-row { display: flex; align-items: center; gap: 22px; margin-bottom: 26px; }
+      .bar-label { width: 170px; font-family: "Tektur", sans-serif; font-weight: 500; font-size: 40px; color: var(--creme); }
+      .bar-track { flex: 1; height: 46px; border-radius: 23px; background: rgba(243,235,221,0.12); overflow: hidden; }
+      .bar-fill { height: 100%; border-radius: 23px; transform-origin: 0 50%; }
+      .bar-val { width: 120px; font-family: "Tektur", sans-serif; font-size: 40px; color: var(--or); text-align: right; }
+      #cmp-title { font-family: "Jura", sans-serif; font-weight: 500; font-size: 34px; letter-spacing: 8px; color: var(--or); margin-bottom: 26px; }
+
+      /* Flèches de gravité */
+      #arrows { position: absolute; left: 0; top: 560px; width: 1080px; height: 520px; opacity: 0; }
+
+      /* Sous-titres */
+      #captions { position: absolute; left: 90px; right: 90px; top: 1225px; height: 150px; }
+      .cap {
+        position: absolute; left: 0; right: 0; top: 0; text-align: center; opacity: 0;
+        font-family: "Tektur", sans-serif; font-weight: 500; font-size: 66px; line-height: 1.1; color: var(--creme);
+        text-shadow: 0 3px 0 rgba(0,0,0,0.45), 0 0 24px rgba(5,6,20,0.9);
+      }
+      .cap .w { display: inline-block; margin: 0 14px; transform-origin: 50% 70%; }
+
+      /* Médaillon narratrice */
+      #medal { position: absolute; left: 44px; top: 1400px; width: 250px; height: 250px; opacity: 0; }
+      #medal .ring { position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--or); box-shadow: 0 0 30px rgba(201,164,106,0.35); }
+      #medal .disc { position: absolute; inset: 10px; border-radius: 50%; overflow: hidden;
+        background: radial-gradient(circle at 50% 35%, #313a74 0%, #1b1f3b 70%); }
+      #medal .face { position: absolute; left: 8%; top: 10%; width: 84%; opacity: 0; }
+      #medal .name { position: absolute; left: 50%; bottom: -20px; transform: translateX(-50%);
+        font-family: "Tektur", sans-serif; font-size: 24px; letter-spacing: 3px; color: var(--nuit);
+        background: var(--or); padding: 4px 16px; border-radius: 20px; white-space: nowrap; }
+
+      /* Personnage en pied */
+      #hero { position: absolute; left: 190px; top: 1080px; width: 700px; opacity: 0; }
+      #hero img { width: 100%; display: block; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 98%); mask-image: linear-gradient(180deg, #000 72%, transparent 98%); }
+      #hello { position: absolute; left: 0; right: 0; top: 260px; text-align: center; opacity: 0; }
+      #cta { position: absolute; left: 0; right: 0; top: 250px; text-align: center; opacity: 0; }
+      .handle { display: inline-block; margin-top: 26px; padding: 14px 40px; border: 2px solid var(--or); border-radius: 50px;
+        font-family: "Jura", sans-serif; font-weight: 500; font-size: 38px; letter-spacing: 4px; color: var(--creme); }
+
+      #brand { position: absolute; left: 0; right: 0; top: 150px; text-align: center; opacity: 0;
+        font-family: "Tektur", sans-serif; font-size: 26px; letter-spacing: 9px; color: rgba(243,235,221,0.75); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="165.5" data-width="1080" data-height="1920">
+
+      <canvas id="space" class="clip" data-start="0" data-duration="165.5" data-track-index="0" width="1080" height="1920"></canvas>
+      <div id="vignette" class="layer clip" data-start="0" data-duration="165.5" data-track-index="1"></div>
+
+      <div id="ui" class="layer clip" data-start="0" data-duration="165.5" data-track-index="2">
+      <div id="brand" >ASTRONORI · LES GRANDES QUESTIONS</div>
+
+      <!-- Scène 1 : accroche -->
+      <div id="t-hook1" class="title">
+        <div class="kicker">Et si demain…</div>
+        <div class="headline"><span class="line-mask"><span>Le champ</span></span><span class="line-mask"><span><em>magnétique</em></span></span><span class="line-mask"><span>disparaissait ?</span></span></div>
+      </div>
+      <div id="t-hook2" class="title">
+        <div class="kicker">La grande question</div>
+        <div class="headline"><span class="line-mask"><span>Notre air</span></span><span class="line-mask"><span>serait-il</span></span><span class="line-mask"><span><span class="hot">emporté</span> ?</span></span></div>
+      </div>
+
+      <!-- Scène 2 : présentation -->
+      <div id="hello" >
+        <div class="kicker">Salut les astro-curieux</div>
+        <div class="headline">C'est <em>AstroNori</em></div>
+        <div class="handle">@astro.nori</div>
+      </div>
+
+      <!-- Scène 3 : vent solaire -->
+      <div id="t-wind" class="title">
+        <div class="kicker">Le Soleil souffle</div>
+        <div class="headline">Le vent<br /><em>solaire</em></div>
+        <div class="sub">un flot de particules électriques</div>
+      </div>
+      <div id="tag-sun" class="tag" style="left:90px; top:640px"><span class="dot"></span>SOLEIL</div>
+      <div id="tag-earth" class="tag" style="left:640px; top:1080px"><span class="dot"></span>TERRE</div>
+
+      <!-- Scène 4 : bouclier -->
+      <div id="t-shield" class="title">
+        <div class="kicker">Heureusement</div>
+        <div class="headline">Un bouclier<br /><em>invisible</em></div>
+        <div class="sub">le champ magnétique terrestre</div>
+      </div>
+      <div id="tag-core" class="tag" style="left:270px; top:1110px"><span class="dot" style="background:#ff9a3d; box-shadow:0 0 18px #ff9a3d"></span>NOYAU · FER LIQUIDE</div>
+
+      <!-- Scène 5 : la gravité -->
+      <div id="t-not" class="title">
+        <div class="kicker">Attention</div>
+        <div class="headline">Le bouclier<br />ne retient <span class="hot">pas</span><br />notre air</div>
+      </div>
+      <div id="t-grav" class="title">
+        <div class="kicker">Ce qui le retient</div>
+        <div class="headline" style="font-size:104px">C'est la<br /><em>gravité</em></div>
+      </div>
+      <svg id="arrows"  viewBox="0 0 1080 520">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#c9a46a" />
+          </marker>
+        </defs>
+        <g stroke="#c9a46a" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#ah)">
+          <path class="arr" d="M220,40 L300,330" />
+          <path class="arr" d="M420,10 L460,320" />
+          <path class="arr" d="M660,10 L620,320" />
+          <path class="arr" d="M860,40 L780,330" />
+        </g>
+      </svg>
+      <div id="tag-mol" class="tag" style="left:300px; top:1090px"><span class="dot" style="background:#8fc4ff; box-shadow:0 0 18px #8fc4ff"></span>MOLÉCULES D'AIR</div>
+
+      <!-- Scène 6 : Mars -->
+      <div id="t-mars" class="title">
+        <div class="kicker">La preuve ?</div>
+        <div class="headline" style="font-size:120px"><span class="hot">Mars</span></div>
+        <div class="sub">plus de champ magnétique global</div>
+      </div>
+      <div id="tag-leak" class="tag" style="left:520px; top:1050px"><span class="dot" style="background:#ffb27a; box-shadow:0 0 18px #ffb27a"></span>SON AIR S'ENFUIT</div>
+      <div id="cmp" >
+        <div id="cmp-title">GRAVITÉ À LA SURFACE</div>
+        <div class="bar-row"><div class="bar-label">TERRE</div><div class="bar-track"><div id="bar-earth" class="bar-fill" style="width:100%; background:linear-gradient(90deg,#4f8fe0,#8fc4ff)"></div></div><div class="bar-val">100 %</div></div>
+        <div class="bar-row"><div class="bar-label">MARS</div><div class="bar-track"><div id="bar-mars" class="bar-fill" style="width:38%; background:linear-gradient(90deg,#b5522e,#e08a5a)"></div></div><div class="bar-val">38 %</div></div>
+        <div class="tag" id="tag-years" style="position:relative; opacity:1; display:inline-flex; margin-top:10px"><span class="dot"></span>SUR DES MILLIARDS D'ANNÉES</div>
+      </div>
+
+      <!-- Scène 7 : la Terre fuit aussi -->
+      <div id="t-earthleak" class="title">
+        <div class="kicker">Et la Terre ?</div>
+        <div class="headline">Elle perd<br />un <em>tout petit</em><br />peu d'air</div>
+        <div class="sub">chaque jour, mesuré par satellites</div>
+      </div>
+
+      <!-- Scène 8 : aurores -->
+      <div id="t-aurora" class="title">
+        <div class="kicker">Bonus ✦</div>
+        <div class="headline">Les aurores<br /><em>polaires</em></div>
+      </div>
+
+      <!-- Scène 9 : le trio -->
+      <div id="t-trio" class="title">
+        <div class="kicker">Bref</div>
+        <div class="headline">Pas de bouclier<br /><em>magique</em></div>
+      </div>
+      <div id="card1" class="card" style="top:640px"><div class="num">1</div><div><div class="big">GRAVITÉ</div><div class="small">garde l'air autour de la Terre</div></div></div>
+      <div id="card2" class="card" style="top:820px"><div class="num">2</div><div><div class="big">CHAMP MAGNÉTIQUE</div><div class="small">dévie le vent solaire</div></div></div>
+      <div id="card3" class="card" style="top:1000px"><div class="num">3</div><div><div class="big">ATMOSPHÈRE</div><div class="small">filtre les rayons dangereux</div></div></div>
+
+      <!-- Scène 10 : question -->
+      <div id="cta" >
+        <div class="kicker">À toi de jouer</div>
+        <div class="headline" style="font-size:110px">Et <em>toi</em> ?</div>
+        <div class="sub">Tu pensais que c'était le champ magnétique ?<br />Dis-le moi en commentaire 💬</div>
+      </div>
+
+      <div id="hero" ><img src="assets/perso/assise-casque.png" alt="AstroNori" /></div>
+
+      <div id="captions" ></div>
+
+      <div id="medal" >
+        <div class="disc" data-layout-allow-overflow>
+          <img class="face" id="f-reveuse" src="assets/perso/reveuse.png" alt="" />
+          <img class="face" id="f-sourire" src="assets/perso/sourire.png" alt="" />
+          <img class="face" id="f-sourire-main" src="assets/perso/sourire-main.png" alt="" />
+          <img class="face" id="f-etonnee" src="assets/perso/etonnee.png" alt="" />
+          <img class="face" id="f-clin-oeil" src="assets/perso/clin-oeil.png" alt="" />
+          <img class="face" id="f-yeux-fermes" src="assets/perso/yeux-fermes.png" alt="" />
+        </div>
+        <div class="ring"></div>
+        <div class="name">ASTRONORI</div>
+      </div>
+
+      <div id="flash" class="layer"></div>
+      </div>
+
+      <!-- Son -->
+      <audio id="vo" src="assets/voice/narration-courte.wav" data-start="0" data-duration="165.42" data-track-index="40"></audio>
+      <audio id="bgm" src="assets/audio/bgm-long.mp3" data-start="0" data-duration="165.5" data-track-index="41" data-volume="0.22"></audio>
+      <audio id="sfx-w1" src="assets/audio/whoosh.wav" data-start="23.48" data-duration="0.9" data-track-index="42" data-volume="0.9"></audio>
+      <audio id="sfx-w2" src="assets/audio/whoosh.wav" data-start="83.56" data-duration="0.9" data-track-index="43" data-volume="1"></audio>
+      <audio id="sfx-w3" src="assets/audio/whoosh.wav" data-start="118.12" data-duration="0.9" data-track-index="44" data-volume="1"></audio>
+      <audio id="sfx-w4" src="assets/audio/whoosh.wav" data-start="128.26" data-duration="0.9" data-track-index="45" data-volume="0.8"></audio>
+      <audio id="sfx-c1" src="assets/audio/chime.wav" data-start="63.08" data-duration="2.2" data-track-index="46" data-volume="0.7"></audio>
+      <audio id="sfx-c2" src="assets/audio/chime.wav" data-start="138.53" data-duration="2.2" data-track-index="47" data-volume="0.6"></audio>
+    </div>
+
+    <script>
+      // ---------- Données et repères temporels ----------
+      const D = window.__DATA;
+      const SEG = {}; D.segments.forEach((s) => (SEG[s.id] = s.start));
+      const WORDS = D.captions.flatMap((g) => g.w);
+      const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9']/g, "");
+      function T(word, after = 0) {
+        const w = WORDS.find((x) => x.s >= after - 0.05 && norm(x.t) === norm(word));
+        return w ? w.s : NaN; // mot absent de cette version : repère ignoré
+      }
+      window.__CUES = {
+        disparaisse: T("disparaisse.", 0), emporter: T("atmosphère,", 1),
+        champ: T("champ", SEG[4]), fer: T("fer", SEG[4]), magneto: T("magnétosphère.", SEG[4]),
+        bouclier: T("bouclier", SEG[4] + 5), devie: T("dévie", SEG[4] + 5),
+        gravite: T("gravité,", SEG[5]), molecule: T("molécules", SEG[5]), echapper: T("s'échapper", SEG[5]),
+        mars: T("Mars.", SEG[6]), sondes: T("sondes", SEG[6]), decouvert: T("découvert", SEG[6]),
+        faible: T("faible", SEG[6]), milliards: T("milliards", SEG[6]),
+        petit: T("petite", SEG[7]), couvercle: T("couvercle", SEG[7]),
+        poles: T("pôles,", SEG[8]), aurores: T("aurores", SEG[8]),
+        g1: T("gravité", SEG[9]), g2: T("champ", SEG[9]),
+      };
+      window.__CUES.g3 = T("l'atmosphère", window.__CUES.g2);
+      window.__CUES.marsT = window.__CUES.mars - 0.6; // bascule de la caméra vers Mars
+      const C = window.__CUES;
+
+      // ---------- Sous-titres ----------
+      const capBox = document.getElementById("captions");
+      D.captions.forEach((g, i) => {
+        const el = document.createElement("div");
+        el.className = "cap"; el.id = "cap-" + i;
+        el.innerHTML = g.w.map((w, j) =>
+          `<span class="w" id="cw-${i}-${j}">${w.t.replace(/([^\s ])([?!:;])$/, "$1 $2")}</span>`).join("");
+        capBox.appendChild(el);
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      const E = "power3.out";
+
+      const skipCap = (g) => (g.s >= SEG[2] - 0.1 && g.s < SEG[3] - 0.1) || g.s >= SEG[10] - 0.1; // texte déjà à l'écran
+      D.captions.forEach((g, i) => {
+        if (skipCap(g)) return;
+        tl.fromTo("#cap-" + i, { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.14, ease: "power2.out" }, g.s);
+        g.w.forEach((w, j) => {
+          tl.fromTo("#cw-" + i + "-" + j, { color: "#f3ebdd", scale: 1 },
+            { color: "#e0b878", scale: 1.04, duration: 0.08, ease: "power1.out" }, w.s);
+          tl.to("#cw-" + i + "-" + j, { scale: 1, duration: 0.18, ease: "power1.inOut" }, w.s + 0.1);
+        });
+        tl.to("#cap-" + i, { autoAlpha: 0, duration: 0.05 }, g.e - 0.05);
+      });
+
+      // ---------- Helpers titres ----------
+      const has = (s) => document.querySelectorAll(s).length > 0;
+      function showTitle(sel, t0, t1) {
+        tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, t0);
+        if (has(sel + " .kicker")) tl.from(sel + " .kicker", { y: 30, autoAlpha: 0, duration: 0.5, ease: E }, t0);
+        if (has(sel + " .line-mask > span")) tl.from(sel + " .line-mask > span", { yPercent: 110, duration: 0.6, ease: E, stagger: 0.09 }, t0 + 0.12);
+        else tl.from(sel + " .headline", { y: 60, autoAlpha: 0, duration: 0.6, ease: E }, t0 + 0.12);
+        if (has(sel + " .sub")) tl.from(sel + " .sub", { y: 24, autoAlpha: 0, duration: 0.5, ease: E }, t0 + 0.4);
+        tl.to(sel, { autoAlpha: 0, y: -30, duration: 0.35, ease: "power2.in" }, t1 - 0.35);
+      }
+      function showTag(sel, t0, t1) {
+        tl.fromTo(sel, { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, t0);
+        tl.to(sel, { autoAlpha: 0, duration: 0.3 }, t1 - 0.3);
+      }
+
+      // Marque discrète
+      tl.to("#brand", { autoAlpha: 1, duration: 0.6 }, 0.2);
+      tl.to("#brand", { autoAlpha: 0, duration: 0.4 }, SEG[2] - 0.2);
+      tl.to("#brand", { autoAlpha: 1, duration: 0.6 }, SEG[3] + 0.4);
+      tl.to("#brand", { autoAlpha: 0, duration: 0.4 }, SEG[10] - 0.3);
+
+      // 1. Accroche
+      showTitle("#t-hook1", 0.25, C.emporter - 0.05);
+      showTitle("#t-hook2", C.emporter, SEG[2]);
+      // 2. Présentation
+      tl.fromTo("#hero", { autoAlpha: 0, y: 260 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "back.out(1.3)" }, SEG[2] - 0.15);
+      tl.to("#hero", { y: -14, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, SEG[2] + 0.65);
+      tl.to("#hero", { autoAlpha: 0, y: 220, duration: 0.5, ease: "power2.in" }, SEG[3] - 0.25);
+      tl.fromTo("#hello", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, SEG[2]);
+      tl.from("#hello .kicker", { y: 30, autoAlpha: 0, duration: 0.5, ease: E }, SEG[2]);
+      tl.from("#hello .headline", { scale: 0.6, autoAlpha: 0, duration: 0.6, ease: "back.out(1.8)" }, SEG[2] + 0.35);
+      tl.from("#hello .handle", { y: 20, autoAlpha: 0, duration: 0.5, ease: E }, SEG[2] + 0.9);
+      tl.to("#hello", { autoAlpha: 0, duration: 0.3 }, SEG[3] - 0.25);
+      // 3. Vent solaire
+      showTitle("#t-wind", SEG[3] + 0.6, SEG[4]);
+      showTag("#tag-sun", SEG[3] + 1.0, SEG[4] - 0.2);
+      showTag("#tag-earth", SEG[3] + 1.3, SEG[4] - 0.2);
+      // 4. Bouclier
+      showTitle("#t-shield", C.magneto - 1.0, SEG[5]);
+      showTag("#tag-core", C.fer, C.magneto - 1.3);
+      // 5. Gravité
+      showTitle("#t-not", SEG[5] + 0.1, C.gravite - 0.6);
+      showTitle("#t-grav", C.gravite - 0.15, SEG[6] - 0.1);
+      tl.fromTo("#arrows", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, C.gravite + 0.2);
+      tl.from("#arrows .arr", { opacity: 0, y: -40, duration: 0.6, ease: E, stagger: 0.08 }, C.gravite + 0.2);
+      tl.to("#arrows .arr", { y: 14, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 3 }, C.gravite + 0.9);
+      tl.to("#arrows", { autoAlpha: 0, duration: 0.3 }, C.echapper);
+      showTag("#tag-mol", C.molecule - 0.3, SEG[6] - 0.15);
+      // 6. Mars
+      tl.to("#flash", { opacity: 1, duration: 0.25, ease: "power2.in" }, C.marsT - 0.05);
+      tl.to("#flash", { opacity: 0, duration: 0.45, ease: "power2.out" }, C.marsT + 0.2);
+      showTitle("#t-mars", C.mars - 0.15, C.sondes - 0.3);
+      showTag("#tag-leak", C.sondes, C.faible - 0.3);
+      tl.fromTo("#cmp", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, C.faible - 0.6);
+      tl.from("#bar-earth", { scaleX: 0, duration: 0.7, ease: "power2.out" }, C.faible - 0.4);
+      tl.from("#bar-mars", { scaleX: 0, duration: 0.7, ease: "power2.out" }, C.faible - 0.1);
+      tl.from("#tag-years", { scale: 0.7, autoAlpha: 0, duration: 0.45, ease: "back.out(2)" }, C.milliards - 0.1);
+      tl.to("#cmp", { autoAlpha: 0, duration: 0.3 }, SEG[7] - 0.3);
+      // 7. La Terre aussi
+      tl.to("#flash", { opacity: 0.9, duration: 0.22, ease: "power2.in" }, SEG[7] - 0.32);
+      tl.to("#flash", { opacity: 0, duration: 0.45, ease: "power2.out" }, SEG[7] - 0.1);
+      showTitle("#t-earthleak", SEG[7] + 0.15, SEG[8] - 0.05);
+      // 8. Aurores
+      showTitle("#t-aurora", C.aurores - 1.2, SEG[9] - 0.05);
+      // 9. Trio
+      showTitle("#t-trio", SEG[9], SEG[10]);
+      [["#card1", C.g1], ["#card2", C.g2], ["#card3", C.g3]].forEach(([s, t]) => {
+        tl.fromTo(s, { autoAlpha: 0, x: -80 }, { autoAlpha: 1, x: 0, duration: 0.5, ease: E }, t - 0.1);
+        tl.to(s, { autoAlpha: 0, duration: 0.3 }, SEG[10] - 0.3);
+      });
+      // 10. Question
+      tl.fromTo("#cta", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, SEG[10]);
+      tl.from("#cta .kicker", { y: 30, autoAlpha: 0, duration: 0.5, ease: E }, SEG[10]);
+      tl.from("#cta .headline", { scale: 0.5, autoAlpha: 0, duration: 0.6, ease: "back.out(2)" }, SEG[10] + 0.1);
+      tl.from("#cta .sub", { y: 24, autoAlpha: 0, duration: 0.5, ease: E }, SEG[10] + 1.6);
+      tl.fromTo("#hero", { autoAlpha: 0, y: 260 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "back.out(1.3)", immediateRender: false }, SEG[10] - 0.1);
+      tl.to("#hero", { y: -14, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 2 }, SEG[10] + 0.7);
+
+      // ---------- Médaillon : expressions selon le contexte ----------
+      const FACES = [
+        [0.35, "reveuse"], [SEG[3] - 0.1, "sourire"], [SEG[4] - 0.1, "sourire-main"],
+        [SEG[5] - 0.05, "etonnee"], [C.gravite + 0.4, "sourire"], [SEG[6] + 0.2, "reveuse"], [C.decouvert - 0.2, "etonnee"], [C.faible - 0.3, "sourire-main"],
+        [SEG[7] - 0.1, "clin-oeil"], [C.couvercle - 0.3, "sourire"], [SEG[8] - 0.1, "yeux-fermes"], [SEG[9] - 0.1, "sourire"],
+      ];
+      let prev = null;
+      FACES.filter(([t]) => Number.isFinite(t)).forEach(([t, f]) => {
+        if (prev) tl.to("#f-" + prev, { autoAlpha: 0, duration: 0.18 }, t);
+        tl.fromTo("#f-" + f, { autoAlpha: 0, scale: 0.9, y: 10 },
+          { autoAlpha: 1, scale: 1, y: 0, duration: 0.32, ease: "back.out(2.2)", immediateRender: false }, t);
+        prev = f;
+      });
+      tl.fromTo("#medal", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 0.35);
+      tl.to("#medal", { autoAlpha: 0, scale: 0.6, duration: 0.3 }, SEG[2] - 0.2);
+      tl.fromTo("#medal", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(2)", immediateRender: false }, SEG[3] - 0.1);
+      tl.to("#medal", { autoAlpha: 0, scale: 0.6, duration: 0.3 }, SEG[10] - 0.3);
+
+      tl.to({}, { duration: 0.01 }, 165.45);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+
+    <script type="module">
+      import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.181.2/+esm";
+
+      const D = window.__DATA, C = window.__CUES;
+      const SEG = {}; D.segments.forEach((s) => (SEG[s.id] = s.start));
+      const W = 1080, H = 1920;
+      const canvas = document.getElementById("space");
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, preserveDrawingBuffer: true });
+      renderer.setSize(W, H, false); renderer.setPixelRatio(1);
+      renderer.setClearColor(0x0b0e22, 1);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(42, W / H, 0.05, 400);
+
+      // ---------- Outils ----------
+      const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+      const smooth = (x) => { x = clamp(x); return x * x * (3 - 2 * x); };
+      const ease = (x) => { x = clamp(x); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+      const win = (t, a, b, f = 0.5) => smooth((t - a) / f) * (1 - smooth((t - (b - f)) / f)); // fondu entrée/sortie
+      let seed = 1234567;
+      const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+      // ---------- Repère : vent solaire et axe magnétique ----------
+      const sunDir = new THREE.Vector3(-0.45, 0.75, 0.48).normalize();    // de la Terre vers le Soleil
+      const windDir = sunDir.clone().negate();                            // sens du vent
+      const magAxis = new THREE.Vector3(0, 1, 0).addScaledVector(windDir, -windDir.y).normalize(); // axe magnétique ⟂ au vent
+      const side = new THREE.Vector3().crossVectors(windDir, magAxis).normalize();
+      const SUNPOS = sunDir.clone().multiplyScalar(12);
+      const MARS = new THREE.Vector3(70, -4, -30);
+
+      // ---------- Lumières ----------
+      const sunLight = new THREE.DirectionalLight(0xfff1dc, 2.6);
+      sunLight.position.copy(SUNPOS); scene.add(sunLight);
+      const fill = new THREE.HemisphereLight(0x6a7fc0, 0x10142e, 0.5); scene.add(fill);
+      const marsLight = new THREE.DirectionalLight(0xfff1dc, 2.4);
+      marsLight.position.copy(MARS.clone().add(sunDir.clone().multiplyScalar(12))); marsLight.target.position.copy(MARS);
+      scene.add(marsLight); scene.add(marsLight.target);
+
+      // ---------- Étoiles ----------
+      {
+        const n = 2600, pos = new Float32Array(n * 3), col = new Float32Array(n * 3);
+        for (let i = 0; i < n; i++) {
+          const u = rnd() * 2 - 1, th = rnd() * Math.PI * 2, r = 150;
+          const s = Math.sqrt(1 - u * u);
+          pos.set([r * s * Math.cos(th), r * u, r * s * Math.sin(th)], i * 3);
+          const w = 0.55 + rnd() * 0.45, warm = rnd() < 0.2;
+          col.set(warm ? [w, w * 0.9, w * 0.75] : [w * 0.9, w * 0.95, w], i * 3);
+        }
+        const g = new THREE.BufferGeometry();
+        g.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+        g.setAttribute("color", new THREE.BufferAttribute(col, 3));
+        const stars = new THREE.Points(g, new THREE.PointsMaterial({ size: 0.9, vertexColors: true, sizeAttenuation: true, transparent: true, opacity: 0.9, depthWrite: false }));
+        stars.renderOrder = -10; scene.add(stars);
+        window.__stars = stars;
+      }
+
+      // ---------- Textures ----------
+      const loader = new THREE.TextureLoader();
+      const tex = (p, srgb = true) => { const t = loader.load(p); if (srgb) t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; };
+      const glowTex = (() => {
+        const c = document.createElement("canvas"); c.width = c.height = 256;
+        const g = c.getContext("2d"), gr = g.createRadialGradient(128, 128, 0, 128, 128, 128);
+        gr.addColorStop(0, "rgba(255,255,255,1)"); gr.addColorStop(0.25, "rgba(255,255,255,0.55)");
+        gr.addColorStop(0.6, "rgba(255,255,255,0.12)"); gr.addColorStop(1, "rgba(255,255,255,0)");
+        g.fillStyle = gr; g.fillRect(0, 0, 256, 256);
+        return new THREE.CanvasTexture(c);
+      })();
+
+      // ---------- Terre ----------
+      const earth = new THREE.Group(); scene.add(earth);
+      const earthMat = new THREE.MeshPhongMaterial({
+        map: tex("assets/textures/earth_atmos_2048.jpg"), normalMap: tex("assets/textures/earth_normal_2048.jpg", false),
+        specularMap: tex("assets/textures/earth_specular_2048.jpg", false), specular: new THREE.Color(0x335577), shininess: 18,
+        normalScale: new THREE.Vector2(0.8, 0.8), transparent: true,
+      });
+      const earthMesh = new THREE.Mesh(new THREE.SphereGeometry(1, 72, 72), earthMat);
+      earthMesh.rotation.z = 0.41; earth.add(earthMesh);
+      const cloudsMat = new THREE.MeshLambertMaterial({ map: tex("assets/textures/earth_clouds_1024.png"), transparent: true, opacity: 0.8, depthWrite: false });
+      const clouds = new THREE.Mesh(new THREE.SphereGeometry(1.012, 64, 64), cloudsMat);
+      clouds.rotation.z = 0.41; earth.add(clouds);
+
+      const atmoMat = new THREE.ShaderMaterial({
+        uniforms: { uColor: { value: new THREE.Color(0.35, 0.62, 1.0) }, uPower: { value: 1.0 }, uSun: { value: sunDir } },
+        vertexShader: `varying vec3 vN; varying vec3 vW; void main(){ vN = normalize(normalMatrix*normal); vec4 w = modelMatrix*vec4(position,1.); vW = w.xyz; gl_Position = projectionMatrix*viewMatrix*w; }`,
+        fragmentShader: `uniform vec3 uColor; uniform float uPower; uniform vec3 uSun; varying vec3 vN; varying vec3 vW;
+          void main(){ vec3 V = normalize(cameraPosition - vW); float f = pow(1.0 - abs(dot(normalize(vN), normalize((viewMatrix*vec4(V,0.)).xyz))), 2.6);
+          float lit = 0.35 + 0.65*smoothstep(-0.4, 0.6, dot(normalize(vW), uSun));
+          gl_FragColor = vec4(uColor * f * 1.6 * lit * uPower, f * uPower); }`,
+        blending: THREE.AdditiveBlending, transparent: true, depthWrite: false, side: THREE.BackSide,
+      });
+      const atmo = new THREE.Mesh(new THREE.SphereGeometry(1.09, 64, 64), atmoMat); earth.add(atmo);
+      const rimMat = atmoMat.clone(); rimMat.side = THREE.FrontSide; rimMat.uniforms = THREE.UniformsUtils.clone(atmoMat.uniforms);
+      rimMat.uniforms.uSun.value = sunDir;
+      const rim = new THREE.Mesh(new THREE.SphereGeometry(1.02, 64, 64), rimMat); earth.add(rim);
+
+      // Noyau (révélé)
+      const coreMat = new THREE.ShaderMaterial({
+        uniforms: { uTime: { value: 0 }, uAlpha: { value: 0 } },
+        vertexShader: `varying vec3 vP; varying vec3 vN; void main(){ vP = position; vN = normalize(normalMatrix*normal); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+        fragmentShader: `uniform float uTime; uniform float uAlpha; varying vec3 vP; varying vec3 vN;
+          float h(vec3 p){ return fract(sin(dot(p, vec3(12.9898,78.233,45.164)))*43758.5453); }
+          float n3(vec3 p){ vec3 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);
+            return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),
+                       mix(mix(h(i+vec3(0,0,1)),h(i+vec3(1,0,1)),f.x),mix(h(i+vec3(0,1,1)),h(i+vec3(1,1,1)),f.x),f.y),f.z); }
+          void main(){ float a = atan(vP.z, vP.x) + uTime*0.9 + vP.y*2.0;
+            vec3 q = vec3(cos(a), vP.y*1.5, sin(a))*3.0;
+            float n = n3(q + uTime*0.4)*0.6 + n3(q*2.1 - uTime*0.3)*0.4;
+            vec3 col = mix(vec3(1.0,0.32,0.05), vec3(1.0,0.82,0.35), n);
+            float rimv = pow(1.0 - abs(vN.z), 1.5);
+            gl_FragColor = vec4(col*(0.9+0.6*rimv), uAlpha); }`,
+        transparent: true,
+      });
+      const core = new THREE.Mesh(new THREE.SphereGeometry(0.55, 64, 64), coreMat); earth.add(core);
+      const innerCore = new THREE.Mesh(new THREE.SphereGeometry(0.22, 32, 32), new THREE.MeshBasicMaterial({ color: 0xfff1c0, transparent: true, opacity: 0 }));
+      earth.add(innerCore);
+      const coreGlow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: 0xff8a30, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false }));
+      coreGlow.scale.set(2.2, 2.2, 1); earth.add(coreGlow);
+
+      // ---------- Lignes de champ magnétique (dipôle comprimé côté Soleil) ----------
+      const fieldGroup = new THREE.Group(); earth.add(fieldGroup);
+      const fieldMat = new THREE.MeshBasicMaterial({ color: 0xd9b774, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+      const fieldMeshes = [];
+      const toWorld = (x, y, z) => windDir.clone().multiplyScalar(x).add(magAxis.clone().multiplyScalar(y)).add(side.clone().multiplyScalar(z));
+      [1.6, 2.15, 2.8, 3.5].forEach((L, li) => {
+        for (let k = 0; k < 7; k++) {
+          const phi = (k / 7) * Math.PI * 2 + li * 0.25;
+          const pts = [];
+          for (let s = 0; s <= 80; s++) {
+            const th = 0.08 + (Math.PI - 0.16) * (s / 80);
+            const r = L * Math.sin(th) ** 2;
+            if (r < 1.02) continue;
+            let x = r * Math.sin(th) * Math.cos(phi), y = r * Math.cos(th), z = r * Math.sin(th) * Math.sin(phi);
+            if (x < 0) { x *= 0.7; y *= 0.93; } else { x *= 1 + 0.22 * L * (r / L); }
+            pts.push(toWorld(x, y, z));
+          }
+          if (pts.length < 6) continue;
+          const curve = new THREE.CatmullRomCurve3(pts);
+          const m = new THREE.Mesh(new THREE.TubeGeometry(curve, 90, 0.0055 + 0.0015 * li, 5, false), fieldMat);
+          m.userData.total = m.geometry.index.count; fieldMeshes.push(m); fieldGroup.add(m);
+        }
+      });
+
+      // ---------- Soleil ----------
+      const sunGroup = new THREE.Group(); sunGroup.position.copy(SUNPOS); scene.add(sunGroup);
+      const sunMat = new THREE.ShaderMaterial({
+        uniforms: { uTime: { value: 0 } },
+        vertexShader: `varying vec3 vP; varying vec3 vN; void main(){ vP=position; vN=normalize(normalMatrix*normal); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+        fragmentShader: `uniform float uTime; varying vec3 vP; varying vec3 vN;
+          float h(vec3 p){ return fract(sin(dot(p, vec3(12.9898,78.233,45.164)))*43758.5453); }
+          float n3(vec3 p){ vec3 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);
+            return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),
+                       mix(mix(h(i+vec3(0,0,1)),h(i+vec3(1,0,1)),f.x),mix(h(i+vec3(0,1,1)),h(i+vec3(1,1,1)),f.x),f.y),f.z); }
+          void main(){ vec3 p = vP*2.4; float n = n3(p+uTime*0.25)*0.55 + n3(p*2.3-uTime*0.35)*0.3 + n3(p*5.1+uTime*0.5)*0.15;
+            vec3 col = mix(vec3(1.0,0.45,0.08), vec3(1.0,0.93,0.6), n);
+            float limb = pow(abs(vN.z), 0.45);
+            gl_FragColor = vec4(col*(0.55+0.65*limb), 1.0); }`,
+      });
+      sunGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.5, 64, 64), sunMat));
+      const sunGlow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: 0xffb35a, transparent: true, opacity: 0.95, blending: THREE.AdditiveBlending, depthWrite: false }));
+      sunGlow.scale.set(11, 11, 1); sunGroup.add(sunGlow);
+      const sunGlow2 = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: 0xff7a2a, transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending, depthWrite: false }));
+      sunGlow2.scale.set(22, 22, 1); sunGroup.add(sunGlow2);
+
+      // ---------- Vent solaire (particules déterministes) ----------
+      function makeWind(n, color, size) {
+        const g = new THREE.BufferGeometry();
+        const pos = new Float32Array(n * 3);
+        g.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+        const P = []; for (let i = 0; i < n; i++) P.push({ ph: rnd(), r: Math.sqrt(rnd()), a: rnd() * Math.PI * 2, sp: 0.85 + rnd() * 0.3 });
+        const mat = new THREE.PointsMaterial({ color, size, map: glowTex, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true });
+        const pts = new THREE.Points(g, mat); pts.frustumCulled = false; scene.add(pts);
+        return { pts, P, pos, mat };
+      }
+      const wind = makeWind(1700, 0xffd9a0, 0.11);
+      const marsWind = makeWind(900, 0xffd9a0, 0.06);
+      function updateWind(w, t, center, shield, uStart, uEnd, R0, beam, speed) {
+        const p = w.pos;
+        for (let i = 0; i < w.P.length; i++) {
+          const q = w.P[i];
+          const f = (q.ph + t * speed * q.sp) % 1;
+          const u = uStart + f * (uEnd - uStart);
+          let rho = q.r * (beam * (0.35 + 0.65 * clamp((u - uStart) / (-uStart + 0.001))));
+          if (shield > 0 && u > -R0) {
+            const rb = Math.sqrt(2 * R0 * (u + R0)) * 0.95;
+            if (rho < rb) rho = rho + (rb + 0.15 * (rb - rho) - rho) * shield;
+          }
+          const x = u, y = rho * Math.cos(q.a), z = rho * Math.sin(q.a);
+          const v = windDir.clone().multiplyScalar(x).add(magAxis.clone().multiplyScalar(y)).add(side.clone().multiplyScalar(z)).add(center);
+          p[i * 3] = v.x; p[i * 3 + 1] = v.y; p[i * 3 + 2] = v.z;
+        }
+        w.pts.geometry.attributes.position.needsUpdate = true;
+      }
+
+      // ---------- Molécules qui retombent (gravité) ----------
+      const molN = 140;
+      const molMesh = new THREE.InstancedMesh(new THREE.SphereGeometry(0.008, 8, 8), new THREE.MeshBasicMaterial({ color: 0xbfe0ff, transparent: true, opacity: 0 }), molN);
+      molMesh.frustumCulled = false; scene.add(molMesh);
+      const molData = [];
+      for (let i = 0; i < molN; i++) {
+        const lat = (rnd() * 2 - 1) * 0.55, lon = (rnd() * 2 - 1) * 0.9;
+        const dir = new THREE.Vector3(Math.sin(lon) * Math.cos(lat), Math.cos(lon) * Math.cos(lat) * 0.25 + 0.97 * Math.cos(lat), Math.sin(lat) * 0.6 + 0.2).normalize();
+        molData.push({ dir, v: 0.35 + rnd() * 0.35, ph: rnd(), esc: i === 7 });
+      }
+      const escMol = new THREE.Mesh(new THREE.SphereGeometry(0.014, 12, 12), new THREE.MeshBasicMaterial({ color: 0xffb27a, transparent: true, opacity: 0 }));
+      scene.add(escMol);
+      const dummy = new THREE.Object3D();
+      function updateMolecules(t, alpha) {
+        molMesh.material.opacity = alpha; escMol.material.opacity = alpha;
+        const g = 1.6;
+        for (let i = 0; i < molN; i++) {
+          const m = molData[i], T = (2 * m.v) / g;
+          const tau = ((t * 0.9 + m.ph * T) % T);
+          const h = m.v * tau - 0.5 * g * tau * tau;
+          dummy.position.copy(m.dir).multiplyScalar(1.025 + h * 2.2);
+          dummy.updateMatrix(); molMesh.setMatrixAt(i, dummy.matrix);
+        }
+        molMesh.instanceMatrix.needsUpdate = true;
+        const e = clamp((t - C.echapper + 1.2) / 3);
+        escMol.position.copy(molData[3].dir).multiplyScalar(1.05 + e * 0.9);
+      }
+
+      // ---------- Mars ----------
+      const marsGroup = new THREE.Group(); marsGroup.position.copy(MARS); scene.add(marsGroup);
+      const marsMesh = new THREE.Mesh(new THREE.SphereGeometry(0.53, 72, 72),
+        new THREE.MeshPhongMaterial({ map: tex("assets/textures/2k_mars.jpg"), shininess: 4, specular: new THREE.Color(0x111111) }));
+      marsMesh.rotation.z = 0.44; marsGroup.add(marsMesh);
+      const marsAtmoMat = atmoMat.clone(); marsAtmoMat.uniforms = THREE.UniformsUtils.clone(atmoMat.uniforms);
+      marsAtmoMat.uniforms.uColor.value = new THREE.Color(1.0, 0.62, 0.42); marsAtmoMat.uniforms.uPower.value = 0.45; marsAtmoMat.uniforms.uSun.value = sunDir;
+      marsGroup.add(new THREE.Mesh(new THREE.SphereGeometry(0.565, 64, 64), marsAtmoMat));
+      // fuite atmosphérique de Mars
+      const leakN = 520, leakPos = new Float32Array(leakN * 3);
+      const leakG = new THREE.BufferGeometry(); leakG.setAttribute("position", new THREE.BufferAttribute(leakPos, 3));
+      const leakP = []; for (let i = 0; i < leakN; i++) leakP.push({ ph: rnd(), a: rnd() * Math.PI * 2, r: rnd(), sp: 0.6 + rnd() * 0.6 });
+      const leakMat = new THREE.PointsMaterial({ color: 0xffc49a, size: 0.09, map: glowTex, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+      const leak = new THREE.Points(leakG, leakMat); leak.frustumCulled = false; scene.add(leak);
+      function updateLeak(t) {
+        for (let i = 0; i < leakN; i++) {
+          const q = leakP[i], f = (q.ph + t * 0.22 * q.sp) % 1;
+          const u = -0.2 + f * 4.2;
+          const spread = 0.45 + 0.35 * f + q.r * 0.25;
+          const v = windDir.clone().multiplyScalar(u)
+            .add(magAxis.clone().multiplyScalar(Math.cos(q.a) * spread))
+            .add(side.clone().multiplyScalar(Math.sin(q.a) * spread)).add(MARS);
+          leakPos[i * 3] = v.x; leakPos[i * 3 + 1] = v.y; leakPos[i * 3 + 2] = v.z;
+        }
+        leakG.attributes.position.needsUpdate = true;
+      }
+
+      // ---------- Petite fuite de la Terre (vent polaire) ----------
+      const pwN = 160, pwPos = new Float32Array(pwN * 3);
+      const pwG = new THREE.BufferGeometry(); pwG.setAttribute("position", new THREE.BufferAttribute(pwPos, 3));
+      const pwP = []; for (let i = 0; i < pwN; i++) pwP.push({ ph: rnd(), a: rnd() * Math.PI * 2, r: rnd() * 0.3, s: rnd() < 0.5 ? 1 : -1 });
+      const pwMat = new THREE.PointsMaterial({ color: 0x9fd0ff, size: 0.075, map: glowTex, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+      const pw = new THREE.Points(pwG, pwMat); pw.frustumCulled = false; scene.add(pw);
+      function updatePolarWind(t) {
+        for (let i = 0; i < pwN; i++) {
+          const q = pwP[i], f = (q.ph + t * 0.18) % 1, d = 1.05 + f * 2.6;
+          const v = magAxis.clone().multiplyScalar(q.s * d)
+            .add(side.clone().multiplyScalar(Math.cos(q.a) * (q.r + f * 0.5)))
+            .add(windDir.clone().multiplyScalar(Math.sin(q.a) * (q.r + f * 0.5) + f * f * 1.6));
+          pwPos[i * 3] = v.x; pwPos[i * 3 + 1] = v.y; pwPos[i * 3 + 2] = v.z;
+        }
+        pwG.attributes.position.needsUpdate = true;
+      }
+
+      // ---------- Aurores ----------
+      const auroraMat = new THREE.ShaderMaterial({
+        uniforms: { uTime: { value: 0 }, uAlpha: { value: 0 } },
+        vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+        fragmentShader: `uniform float uTime; uniform float uAlpha; varying vec2 vUv;
+          float h(float x){ return fract(sin(x*127.1)*43758.5453); }
+          float n1(float x){ float i=floor(x), f=fract(x); f=f*f*(3.-2.*f); return mix(h(i),h(i+1.),f); }
+          void main(){ float a = vUv.x*80.0;
+            float band = n1(a + uTime*1.4)*0.6 + n1(a*2.7 - uTime*2.1)*0.4;
+            float rays = pow(n1(a*6.0 + uTime*3.0), 3.0);
+            float y = vUv.y;
+            float fall = smoothstep(0.0, 0.12, y) * (1.0 - smoothstep(0.35, 1.0, y));
+            vec3 col = mix(vec3(0.15,1.0,0.55), vec3(0.75,0.35,1.0), smoothstep(0.35,0.95,y));
+            float al = (band*0.7 + rays*0.6) * fall * uAlpha;
+            gl_FragColor = vec4(col*al*1.6, al); }`,
+        transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide,
+      });
+      const auroraGroup = new THREE.Group(); earth.add(auroraGroup);
+      [1, -1].forEach((s) => {
+        const ring = new THREE.Mesh(new THREE.CylinderGeometry(0.43, 0.37, 0.2, 128, 1, true), auroraMat);
+        const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), magAxis.clone().multiplyScalar(s));
+        ring.quaternion.copy(q); ring.position.copy(magAxis.clone().multiplyScalar(s * 0.96));
+        if (s < 0) ring.rotateX(Math.PI);
+        auroraGroup.add(ring);
+      });
+
+      // ---------- Plans de caméra ----------
+      const V = (x, y, z) => new THREE.Vector3(x, y, z);
+      const nightCam = windDir.clone().multiplyScalar(1.15).add(magAxis.clone().multiplyScalar(2.15)).add(side.clone().multiplyScalar(0.55));
+      const SHOTS = [
+        { t: 0, b: 0.01, p0: V(0.4, -0.2, 7.6), p1: V(0.2, 0.0, 5.0), g0: V(0, 0.15, 0), g1: V(0, 0.2, 0) },
+        { t: SEG[2] - 0.2, b: 1.0, p0: V(0.3, -2.1, 6.4), p1: V(-0.2, -2.3, 6.0), g0: V(0, 0.9, 0), g1: V(0, 1.0, 0) },
+        { t: SEG[3] - 0.25, b: 1.3, p0: V(2.2, 3.6, 33.0), p1: V(1.8, 3.9, 30.5), g0: V(-2.8, 4.1, 1.6), g1: V(-2.9, 4.2, 1.6) },
+        { t: SEG[4] - 0.4, b: 1.4, p0: V(1.2, 1.6, 9.4), p1: V(0.6, 1.0, 7.4), g0: V(-0.4, 1.3, 0), g1: V(-0.2, 0.8, 0) },
+        { t: C.fer - 0.3, b: 0.9, p0: V(0.4, 0.3, 4.4), p1: V(0.3, 0.2, 4.0), g0: V(0, 0.15, 0), g1: V(0, 0.1, 0) },
+        { t: C.magneto - 1.2, b: 1.0, p0: V(1.0, 1.4, 8.6), p1: V(0.8, 1.2, 8.0), g0: V(-0.3, 1.0, 0), g1: V(-0.3, 0.9, 0) },
+        { t: C.gravite - 0.9, b: 1.2, p0: V(0, 0.95, 3.15), p1: V(0, 0.8, 2.8), g0: V(0, 1.18, 0), g1: V(0, 1.12, 0) },
+        { t: C.marsT, b: 0.35, p0: MARS.clone().add(V(0.35, 0.25, 2.7)), p1: MARS.clone().add(V(0.05, 0.1, 2.25)), g0: MARS.clone().add(V(0.1, -0.15, 0)), g1: MARS.clone().add(V(0.15, -0.2, 0)) },
+        { t: SEG[7] - 0.3, b: 0.35, p0: V(0.5, 0.4, 5.0), p1: V(0.2, 0.3, 4.3), g0: V(0, 0.45, 0), g1: V(0, 0.4, 0) },
+        { t: C.poles - 1.6, b: 1.4, p0: nightCam.clone().multiplyScalar(1.15), p1: nightCam.clone(), g0: magAxis.clone().multiplyScalar(0.55), g1: magAxis.clone().multiplyScalar(0.7) },
+        { t: SEG[9] - 0.2, b: 1.3, p0: V(0.6, 0.5, 8.0), p1: V(-0.3, 0.3, 7.2), g0: V(0, 1.1, 0), g1: V(0, 1.1, 0) },
+        { t: SEG[10] - 0.2, b: 1.0, p0: V(0, -1.6, 7.0), p1: V(0, -1.8, 6.4), g0: V(0, 1.4, 0), g1: V(0, 1.5, 0) },
+      ];
+      SHOTS.forEach((s, i) => (s.end = i + 1 < SHOTS.length ? SHOTS[i + 1].t : 999));
+      function shotAt(s, t) {
+        const k = ease((t - s.t) / (s.end - s.t));
+        return { p: s.p0.clone().lerp(s.p1, k), g: s.g0.clone().lerp(s.g1, k) };
+      }
+      function cameraAt(t) {
+        let i = 0; while (i + 1 < SHOTS.length && t >= SHOTS[i + 1].t) i++;
+        const cur = shotAt(SHOTS[i], t);
+        if (i > 0 && t < SHOTS[i].t + SHOTS[i].b) {
+          const prev = shotAt(SHOTS[i - 1], SHOTS[i].t);
+          const k = ease((t - SHOTS[i].t) / SHOTS[i].b);
+          cur.p = prev.p.lerp(cur.p, k); cur.g = prev.g.lerp(cur.g, k);
+        }
+        camera.position.copy(cur.p); camera.lookAt(cur.g);
+      }
+
+      // ---------- Rendu à l'instant t ----------
+      function renderAt(t) {
+        cameraAt(t);
+        earthMesh.rotation.y = 1.9 + t * 0.045; clouds.rotation.y = 1.9 + t * 0.055;
+        marsMesh.rotation.y = 2.4 + t * 0.05;
+        sunMat.uniforms.uTime.value = t; coreMat.uniforms.uTime.value = t; auroraMat.uniforms.uTime.value = t;
+        const pulse = 1 + 0.04 * Math.sin(t * 2.3); sunGlow.scale.set(11 * pulse, 11 * pulse, 1);
+
+        // Bouclier magnétique : visibilité et dessin progressif
+        const fOn = smooth((t - 0.4) / 1.6) * (1 - smooth((t - C.disparaisse + 0.2) / 0.6));      // accroche : présent puis disparaît
+        const fShield = smooth((t - C.champ + 0.6) / 1.6);                                           // réapparaît au bouclier
+        const fNot = 1 - 0.75 * smooth((t - SEG[5]) / 0.8) + 0.75 * smooth((t - SEG[7]) / 0.8);    // s'efface pendant la gravité
+        const fMars = 1 - smooth((t - C.marsT - 0.1) / 0.3) + smooth((t - SEG[7] + 0.2) / 0.3);
+        const fAur = 1 - 0.6 * smooth((t - SEG[8]) / 0.8) + 0.6 * smooth((t - SEG[9]) / 0.8);
+        let field = t < SEG[3] ? fOn * 0.7 : fShield * fNot * clamp(fMars) * fAur;
+        field *= 1 - smooth((t - SEG[10]) / 1.0) * 0.6;
+        fieldMat.opacity = 0.5 * clamp(field) * (1 - 0.35 * smooth((t - SEG[9]) / 0.8));
+        const draw = t < SEG[3] ? smooth((t - 0.4) / 1.8) : smooth((t - C.champ + 0.6) / 1.8);
+        fieldMeshes.forEach((m, i) => { const d = clamp(draw * 1.25 - (i % 7) * 0.03); m.geometry.setDrawRange(0, Math.floor(m.userData.total * d / 3) * 3); });
+
+        // Noyau : la Terre devient translucide
+        const coreK = win(t, C.fer - 0.2, C.magneto - 1.0, 0.55);
+        earthMat.opacity = 1 - 0.82 * coreK; cloudsMat.opacity = 0.8 * (1 - coreK);
+        earthMat.depthWrite = coreK < 0.5;
+        coreMat.uniforms.uAlpha.value = coreK; innerCore.material.opacity = coreK; coreGlow.material.opacity = 0.8 * coreK;
+
+        // Vent solaire autour de la Terre
+        const windVis = (smooth((t - 1.0) / 1.0) * (1 - smooth((t - SEG[2] + 0.4) / 0.4))) + win(t, SEG[3] - 0.2, SEG[5] + 1.5, 0.6) + win(t, SEG[7] - 0.2, SEG[8] + 0.8, 0.5) + win(t, SEG[9], 999, 0.8) * 0.8;
+        wind.mat.opacity = 0.85 * clamp(windVis) * clamp(fMars);
+        const shield = t < SEG[3] ? fOn : smooth((t - C.champ + 0.2) / 2.0);
+        updateWind(wind, t, V(0, 0, 0), clamp(shield), -11, 7, 1.9, 2.9, 0.16);
+
+        // Atmosphère
+        const atmoBoost = 1 + 0.9 * win(t, SEG[5] + 2.0, C.marsT, 0.8) + 0.4 * win(t, SEG[9] + 4.0, 999, 1.0);
+        atmoMat.uniforms.uPower.value = atmoBoost * (1 - 0.3 * coreK); rimMat.uniforms.uPower.value = 0.55 * atmoBoost;
+
+        // Gravité : molécules
+        updateMolecules(t, win(t, C.gravite - 0.4, C.marsT + 0.1, 0.6));
+
+        // Mars
+        const marsVis = win(t, C.marsT - 0.2, SEG[7] + 0.1, 0.25);
+        marsGroup.visible = marsVis > 0.01; leak.visible = marsGroup.visible; marsWind.pts.visible = marsGroup.visible;
+        leakMat.opacity = 0.95 * smooth((t - C.sondes + 0.6) / 1.0) * marsVis;
+        marsWind.mat.opacity = 0.7 * marsVis;
+        updateLeak(t); updateWind(marsWind, t, MARS, 0, -6, 5, 1, 1.6, 0.16);
+
+        // Fuite terrestre (vent polaire)
+        pwMat.opacity = 0.9 * win(t, C.petit - 1.0, SEG[8] + 0.5, 0.5);
+        updatePolarWind(t);
+
+        // Aurores
+        auroraMat.uniforms.uAlpha.value = win(t, C.poles - 0.8, SEG[9] + 1.2, 0.8) + 0.5 * win(t, SEG[9] + 1.2, 999, 1.0);
+
+        // Soleil visible surtout quand on le cadre
+        sunGroup.visible = true;
+        renderer.render(scene, camera);
+      }
+
+      window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
+      renderAt(window.__hfThreeTime || 0);
+    </script>
+  </body>
+</html>
