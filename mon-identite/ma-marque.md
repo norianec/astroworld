@@ -61,6 +61,7 @@
   - Or Saturne `#C9A46A` (accents, titres)
   - Cuivre `#B5713E` (rappel des cheveux, mots importants)
   - Gris anthracite `#3A3D4A` (détails)
+- **Typographie :** Tektur (titres, nom « AstroNori »), Jura (slogans, petits textes).
 - **Ambiance :** cosmique, douce et chaleureuse, avec étoiles scintillantes, anneaux de planètes et croissants de lune.
 - **Inspiration :** Zebroloss (TikTok), en plus imagé et plus animé, raconté par le personnage.
 
