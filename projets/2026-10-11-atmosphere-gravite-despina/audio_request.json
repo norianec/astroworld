@@ -1,0 +1,52 @@
+{
+ "provider": "gemini",
+ "tts_model": "gemini-3.8-flash-tts",
+ "voice": "Despina",
+ "lang": "fr",
+ "style": "Voix de femme adulte française, grave et veloutée, captivante et légèrement mystérieuse, comme la narratrice d'un documentaire spatial au ton cinématographique (ambiance Interstellar). Calme, intense, intime, jamais enfantine ni surjouée. Débit fluide et posé, articulation claire, silences courts qui créent du suspense avant les révélations.",
+ "lines": [
+  {
+   "id": "s01",
+   "text": "Imagine que demain, le champ magnétique terrestre disparaisse. Est-ce que notre atmosphère, cette couche de gaz qui nous permet de respirer, pourrait disparaître avec lui ?"
+  },
+  {
+   "id": "s02",
+   "text": "Salut les astro-curieux, c'est AstroNori !"
+  },
+  {
+   "id": "s03",
+   "text": "Le Soleil ne nous envoie pas que de la lumière. Il libère aussi en permanence des particules chargées : le vent solaire, qui frappe toutes les planètes sur son passage."
+  },
+  {
+   "id": "s04",
+   "text": "Heureusement, la Terre possède un champ magnétique, produit par les mouvements du fer liquide dans son noyau externe. Il s'étend dans l'espace et forme la magnétosphère : un bouclier invisible, qui dévie une grande partie du vent solaire."
+  },
+  {
+   "id": "s05",
+   "text": "Mais attention : ce n'est pas ce bouclier qui retient notre atmosphère. C'est la gravité. Elle attire les molécules de l'air, et la plupart n'ont pas assez d'énergie pour s'échapper dans l'espace."
+  },
+  {
+   "id": "s06",
+   "text": "Comment les scientifiques l'ont-ils compris ? En étudiant Mars. Mars a aujourd'hui une atmosphère très fine, et plus de champ magnétique global. Des sondes ont vu son atmosphère s'échapper dans l'espace, emportée par le vent solaire. Mais ce n'est pas la seule raison : sa gravité est plus faible, et plusieurs mécanismes ont agi pendant des milliards d'années."
+  },
+  {
+   "id": "s07",
+   "text": "Et la Terre ? Malgré son champ magnétique, elle perd elle aussi un peu de gaz dans l'espace, et les satellites le mesurent. Le champ magnétique n'est donc pas un couvercle hermétique : il modifie surtout la façon dont le vent solaire nous atteint."
+  },
+  {
+   "id": "s08",
+   "text": "D'ailleurs, quand des particules chargées pénètrent près des pôles et rencontrent les gaz de l'atmosphère, elles produisent les aurores polaires."
+  },
+  {
+   "id": "s09",
+   "text": "Finalement, tout fonctionne ensemble : la gravité retient l'atmosphère, le champ magnétique dévie une grande partie du vent solaire, et l'atmosphère absorbe une partie des rayonnements nocifs. La Terre n'est donc pas protégée par un seul bouclier magique."
+  },
+  {
+   "id": "s10",
+   "text": "Et toi, tu pensais que c'était le champ magnétique ? Dis-le moi en commentaire !"
+  }
+ ],
+ "bgm": {
+  "mode": "none"
+ }
+}

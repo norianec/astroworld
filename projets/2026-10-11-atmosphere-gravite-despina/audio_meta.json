@@ -1,0 +1,77 @@
+{
+  "tts_provider": "gemini",
+  "voice_id": "Despina",
+  "bgm": null,
+  "bgm_pending": false,
+  "bgm_provider": null,
+  "bgm_pid": null,
+  "bgm_log": null,
+  "bgm_mode": null,
+  "bgm_target_duration_s": null,
+  "bgm_seed_duration_s": null,
+  "bgm_loop_count": null,
+  "voices": [
+    {
+      "id": "s01",
+      "path": "assets/voice/s01.wav",
+      "duration_s": 12.04,
+      "words": []
+    },
+    {
+      "id": "s02",
+      "path": "assets/voice/s02.wav",
+      "duration_s": 3.72,
+      "words": []
+    },
+    {
+      "id": "s03",
+      "path": "assets/voice/s03.wav",
+      "duration_s": 11.64,
+      "words": []
+    },
+    {
+      "id": "s04",
+      "path": "assets/voice/s04.wav",
+      "duration_s": 17.8,
+      "words": []
+    },
+    {
+      "id": "s05",
+      "path": "assets/voice/s05.wav",
+      "duration_s": 12.4,
+      "words": []
+    },
+    {
+      "id": "s06",
+      "path": "assets/voice/s06.wav",
+      "duration_s": 24.68,
+      "words": []
+    },
+    {
+      "id": "s07",
+      "path": "assets/voice/s07.wav",
+      "duration_s": 16.16,
+      "words": []
+    },
+    {
+      "id": "s08",
+      "path": "assets/voice/s08.wav",
+      "duration_s": 9.56,
+      "words": []
+    },
+    {
+      "id": "s09",
+      "path": "assets/voice/s09.wav",
+      "duration_s": 19.48,
+      "words": []
+    },
+    {
+      "id": "s10",
+      "path": "assets/voice/s10.wav",
+      "duration_s": 5.28,
+      "words": []
+    }
+  ],
+  "sfx": [],
+  "total_duration_s": 132.76
+}
